@@ -1,0 +1,101 @@
+Cmp-Mod V01 Created by CvPcb (2013-may-18)-stable date = Wed 19 Aug 2015 07:39:28 PM EDT
+
+BeginCmp
+TimeStamp = /55D07664;
+Reference = D1;
+ValeurCmp = DIODE;
+IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D076BD;
+Reference = LC0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D076CF;
+Reference = LC1;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D076B1;
+Reference = LC2;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D07715;
+Reference = LED1;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D076C3;
+Reference = LR0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D07696;
+Reference = LR1;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D51261;
+Reference = R1;
+ValeurCmp = RESISTOR;
+IdModule  = RESISTOR;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D0764C;
+Reference = S1;
+ValeurCmp = MX1A;
+IdModule  = CHERRY_PCB_100H;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D076B7;
+Reference = SC0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D076D7;
+Reference = SC1;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D076A9;
+Reference = SC2;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D076C9;
+Reference = SR0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D076A3;
+Reference = SR1;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+EndListe
