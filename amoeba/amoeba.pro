@@ -1,8 +1,6 @@
-update=Thu 20 Aug 2015 08:03:29 PM EDT
+update=Fri 21 Aug 2015 07:59:14 PM EDT
 version=1
-last_client=eeschema
-[general]
-version=1
+last_client=kicad
 [cvpcb]
 version=1
 NetIExt=net
@@ -150,3 +148,5 @@ LibName49=tactile_switch
 LibName50=TeensyShield-cache
 LibName51=tutorial-cache
 LibName52=usb_ports
+[general]
+version=1
