@@ -1,6 +1,8 @@
-update=Fri 21 Aug 2015 07:59:14 PM EDT
+update=Sat 22 Aug 2015 12:06:14 AM EDT
 version=1
-last_client=kicad
+last_client=eeschema
+[general]
+version=1
 [cvpcb]
 version=1
 NetIExt=net
@@ -8,12 +10,12 @@ NetIExt=net
 EquName1=devcms
 [pcbnew]
 version=1
-LastNetListRead=amoeba.net
+LastNetListRead=amoeba-tp.net
 UseCmpFile=1
-PadDrill="    0.600000"
-PadDrillOvalY="    0.600000"
-PadSizeH="    1.500000"
-PadSizeV="    1.500000"
+PadDrill="    2.200000"
+PadDrillOvalY="    2.200000"
+PadSizeH="    2.200000"
+PadSizeV="    2.200000"
 PcbTextSizeV="    1.500000"
 PcbTextSizeH="    1.500000"
 PcbTextThickness="    0.300000"
@@ -22,7 +24,7 @@ ModuleTextSizeH="    1.000000"
 ModuleTextSizeThickness="    0.150000"
 SolderMaskClearance="    0.000000"
 SolderMaskMinWidth="    0.000000"
-DrawSegmentWidth="    0.200000"
+DrawSegmentWidth="    0.100000"
 BoardOutlineThickness="    0.100000"
 ModuleOutlineThickness="    0.150000"
 [pcbnew/libraries]
@@ -87,6 +89,7 @@ LibName57=tactile_switch
 LibName58=tqfp
 LibName59=TQFP44
 LibName60=usb_ports
+LibName61=mtl
 [eeschema]
 version=1
 LibDir=libraries
@@ -148,5 +151,4 @@ LibName49=tactile_switch
 LibName50=TeensyShield-cache
 LibName51=tutorial-cache
 LibName52=usb_ports
-[general]
-version=1
+LibName53=mtl

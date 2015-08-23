@@ -1,99 +1,99 @@
-Cmp-Mod V01 Created by CvPcb (2013-may-18)-stable date = Wed 19 Aug 2015 07:39:28 PM EDT
+Cmp-Mod V01 Created by CvPcb (2013-may-18)-stable date = Sat 22 Aug 2015 11:12:16 PM EDT
 
 BeginCmp
-TimeStamp = /55D07664;
-Reference = D1;
+TimeStamp = /55D92FDB/55D9304C;
+Reference = D0;
 ValeurCmp = DIODE;
 IdModule  = D3;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D076BD;
-Reference = LC0;
-ValeurCmp = CONN_1;
-IdModule  = Pad;
-EndCmp
-
-BeginCmp
-TimeStamp = /55D076CF;
-Reference = LC1;
-ValeurCmp = CONN_1;
-IdModule  = Pad;
-EndCmp
-
-BeginCmp
-TimeStamp = /55D076B1;
-Reference = LC2;
-ValeurCmp = CONN_1;
-IdModule  = Pad;
-EndCmp
-
-BeginCmp
-TimeStamp = /55D07715;
-Reference = LED1;
+TimeStamp = /55D92FDB/55D93052;
+Reference = L0;
 ValeurCmp = LED;
 IdModule  = LED-3MM;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D076C3;
-Reference = LR0;
+TimeStamp = /55D71CB4;
+Reference = LC0:0;
 ValeurCmp = CONN_1;
 IdModule  = Pad;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D07696;
-Reference = LR1;
+TimeStamp = /55D71CC6;
+Reference = LC0:1;
 ValeurCmp = CONN_1;
 IdModule  = Pad;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D51261;
-Reference = R1;
+TimeStamp = /55D928BE;
+Reference = LC0:2;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D71CBA;
+Reference = LR0:0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D8D161;
+Reference = LR0:1;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D92FDB/55D93058;
+Reference = R0;
 ValeurCmp = RESISTOR;
 IdModule  = RESISTOR;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D0764C;
-Reference = S1;
+TimeStamp = /55D92FDB/55D93046;
+Reference = S0;
 ValeurCmp = MX1A;
 IdModule  = CHERRY_PCB_100H;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D076B7;
-Reference = SC0;
+TimeStamp = /55D71CAE;
+Reference = SC0:0;
 ValeurCmp = CONN_1;
 IdModule  = Pad;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D076D7;
-Reference = SC1;
+TimeStamp = /55D71CCC;
+Reference = SC0:1;
 ValeurCmp = CONN_1;
 IdModule  = Pad;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D076A9;
-Reference = SC2;
+TimeStamp = /55D928B8;
+Reference = SC0:2;
 ValeurCmp = CONN_1;
 IdModule  = Pad;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D076C9;
-Reference = SR0;
+TimeStamp = /55D71CC0;
+Reference = SR0:0;
 ValeurCmp = CONN_1;
 IdModule  = Pad;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D076A3;
-Reference = SR1;
+TimeStamp = /55D8D15B;
+Reference = SR0:1;
 ValeurCmp = CONN_1;
 IdModule  = Pad;
 EndCmp
