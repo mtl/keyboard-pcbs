@@ -34,7 +34,7 @@ export: \
 	cp $(gerber_dir)/$(project)-F_Cu.gtl $(export_dir)/$(project).gtl
 	cp $(gerber_dir)/$(project)-F_Mask.gts $(export_dir)/$(project).gts
 	cp $(gerber_dir)/$(project)-F_SilkS.gto $(export_dir)/$(project).gto
-	cp $(gerber_dir)/$(project)-merged.drl $(export_dir)/$(project).drl
+	mv $(gerber_dir)/$(project)-merged.drl $(export_dir)/$(project).drl
 	zip -j $(project).zip \
 		$(export_dir)/$(project).gbl \
 		$(export_dir)/$(project).gbs \

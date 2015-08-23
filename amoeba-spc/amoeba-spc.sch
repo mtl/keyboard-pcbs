@@ -1,0 +1,272 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:aker
+LIBS:amoeba-cache
+LIBS:atmega
+LIBS:atmega32u4
+LIBS:component
+LIBS:components
+LIBS:crystal
+LIBS:dtsjw
+LIBS:ErgoDOX-cache
+LIBS:KB_common
+LIBS:keyboard-cache
+LIBS:mcp23xx8
+LIBS:mcp23018
+LIBS:mechanical
+LIBS:mx1a
+LIBS:mx1a-simple
+LIBS:oupiin_usb
+LIBS:Pin
+LIBS:tactile_switch
+LIBS:TeensyShield-cache
+LIBS:tutorial-cache
+LIBS:usb_ports
+LIBS:mtl
+LIBS:switch-omron
+LIBS:amoeba-spc-cache
+EELAYER 27 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 2
+Title ""
+Date "23 aug 2015"
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L CONN_1 SC0:0
+U 1 1 55D71CAE
+P 6500 3150
+F 0 "SC0:0" H 6580 3150 40  0000 L CNN
+F 1 "CONN_1" H 6500 3205 30  0001 C CNN
+F 2 "" H 6500 3150 60  0000 C CNN
+F 3 "" H 6500 3150 60  0000 C CNN
+	1    6500 3150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CONN_1 LC0:0
+U 1 1 55D71CB4
+P 7050 3150
+F 0 "LC0:0" H 7130 3150 40  0000 L CNN
+F 1 "CONN_1" H 7050 3205 30  0001 C CNN
+F 2 "" H 7050 3150 60  0000 C CNN
+F 3 "" H 7050 3150 60  0000 C CNN
+	1    7050 3150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CONN_1 LR0:0
+U 1 1 55D71CBA
+P 6250 3600
+F 0 "LR0:0" H 6330 3600 40  0000 L CNN
+F 1 "CONN_1" H 6250 3655 30  0001 C CNN
+F 2 "" H 6250 3600 60  0000 C CNN
+F 3 "" H 6250 3600 60  0000 C CNN
+	1    6250 3600
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_1 SR0:0
+U 1 1 55D71CC0
+P 6250 3450
+F 0 "SR0:0" H 6330 3450 40  0000 L CNN
+F 1 "CONN_1" H 6250 3505 30  0001 C CNN
+F 2 "" H 6250 3450 60  0000 C CNN
+F 3 "" H 6250 3450 60  0000 C CNN
+	1    6250 3450
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_1 LC0:1
+U 1 1 55D71CC6
+P 7050 3900
+F 0 "LC0:1" H 7130 3900 40  0000 L CNN
+F 1 "CONN_1" H 7050 3955 30  0001 C CNN
+F 2 "" H 7050 3900 60  0000 C CNN
+F 3 "" H 7050 3900 60  0000 C CNN
+	1    7050 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L CONN_1 SC0:1
+U 1 1 55D71CCC
+P 6500 3900
+F 0 "SC0:1" H 6580 3900 40  0000 L CNN
+F 1 "CONN_1" H 6500 3955 30  0001 C CNN
+F 2 "" H 6500 3900 60  0000 C CNN
+F 3 "" H 6500 3900 60  0000 C CNN
+	1    6500 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L CONN_1 SR0:1
+U 1 1 55D8D15B
+P 7300 3450
+F 0 "SR0:1" H 7380 3450 40  0000 L CNN
+F 1 "CONN_1" H 7300 3505 30  0001 C CNN
+F 2 "" H 7300 3450 60  0000 C CNN
+F 3 "" H 7300 3450 60  0000 C CNN
+	1    7300 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_1 LR0:1
+U 1 1 55D8D161
+P 7300 3600
+F 0 "LR0:1" H 7380 3600 40  0000 L CNN
+F 1 "CONN_1" H 7300 3655 30  0001 C CNN
+F 2 "" H 7300 3600 60  0000 C CNN
+F 3 "" H 7300 3600 60  0000 C CNN
+	1    7300 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_1 RST0
+U 1 1 55D94E53
+P 4300 3550
+F 0 "RST0" H 4380 3550 40  0000 L CNN
+F 1 "CONN_1" H 4300 3605 30  0001 C CNN
+F 2 "" H 4300 3550 60  0000 C CNN
+F 3 "" H 4300 3550 60  0000 C CNN
+	1    4300 3550
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_1 GND0
+U 1 1 55D94E8E
+P 5000 3550
+F 0 "GND0" H 5080 3550 40  0000 L CNN
+F 1 "CONN_1" H 5000 3605 30  0001 C CNN
+F 2 "" H 5000 3550 60  0000 C CNN
+F 3 "" H 5000 3550 60  0000 C CNN
+	1    5000 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 3600 7100 3600
+Wire Wire Line
+	7100 3600 7100 3750
+Wire Wire Line
+	7100 3750 6900 3750
+Wire Wire Line
+	6500 3600 6450 3600
+Wire Wire Line
+	6450 3600 6450 3750
+Wire Wire Line
+	6450 3750 6650 3750
+Wire Wire Line
+	6500 3450 6450 3450
+Wire Wire Line
+	6450 3450 6450 3300
+Wire Wire Line
+	6450 3300 6500 3300
+Wire Wire Line
+	7050 3450 7100 3450
+Wire Wire Line
+	7100 3450 7100 3300
+Wire Wire Line
+	7100 3300 7050 3300
+Wire Wire Line
+	6400 3450 6400 3500
+Wire Wire Line
+	6400 3500 6500 3500
+Wire Wire Line
+	6400 3600 6400 3550
+Wire Wire Line
+	6400 3550 6500 3550
+Wire Wire Line
+	7150 3450 7150 3500
+Wire Wire Line
+	7150 3500 7050 3500
+Wire Wire Line
+	7050 3550 7150 3550
+Wire Wire Line
+	7150 3550 7150 3600
+$Sheet
+S 6500 3400 550  250 
+U 55D92FDB
+F0 "key:SPC" 39
+F1 "key.sch" 39
+F2 "SC0" B L 6500 3450 39 
+F3 "LC0" B R 7050 3450 39 
+F4 "SR1" B R 7050 3500 39 
+F5 "SR0" B L 6500 3500 39 
+F6 "LR1" B R 7050 3550 39 
+F7 "LR0" B L 6500 3550 39 
+F8 "LC1" B R 7050 3600 39 
+F9 "SC1" B L 6500 3600 39 
+$EndSheet
+$Comp
+L CONN_1 SC0:2
+U 1 1 55D928B8
+P 6650 3900
+F 0 "SC0:2" H 6730 3900 40  0000 L CNN
+F 1 "CONN_1" H 6650 3955 30  0001 C CNN
+F 2 "" H 6650 3900 60  0000 C CNN
+F 3 "" H 6650 3900 60  0000 C CNN
+	1    6650 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L CONN_1 LC0:2
+U 1 1 55D928BE
+P 6900 3900
+F 0 "LC0:2" H 6980 3900 40  0000 L CNN
+F 1 "CONN_1" H 6900 3955 30  0001 C CNN
+F 2 "" H 6900 3900 60  0000 C CNN
+F 3 "" H 6900 3900 60  0000 C CNN
+	1    6900 3900
+	0    1    1    0   
+$EndComp
+Connection ~ 7050 3750
+Connection ~ 6500 3750
+$Comp
+L 10-XX S1
+U 1 1 55D9E80C
+P 4650 3550
+F 0 "S1" V 4365 3450 50  0000 L BNN
+F 1 "10-XX" V 4465 3675 50  0000 L BNN
+F 2 "switch-omron-B3F-10XX" H 4650 3700 50  0001 C CNN
+F 3 "" H 4650 3550 60  0000 C CNN
+	1    4650 3550
+	0    1    1    0   
+$EndComp
+NoConn ~ 4450 3650
+NoConn ~ 4850 3650
+$EndSCHEMATC

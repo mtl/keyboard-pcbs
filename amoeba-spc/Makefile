@@ -1,5 +1,5 @@
 
-project=amoeba
+project=amoeba-spc
 
 gerber_dir=gerber
 export_dir=$(gerber_dir)/export
