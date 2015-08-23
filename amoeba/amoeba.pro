@@ -28,7 +28,7 @@ DrawSegmentWidth="    0.100000"
 BoardOutlineThickness="    0.100000"
 ModuleOutlineThickness="    0.150000"
 [pcbnew/libraries]
-LibDir=modules
+LibDir=../modules
 LibName1=sockets
 LibName2=connect
 LibName3=discret
@@ -92,7 +92,7 @@ LibName60=usb_ports
 LibName61=mtl
 [eeschema]
 version=1
-LibDir=libraries
+LibDir=../libraries
 NetFmtName=
 RptD_X=0
 RptD_Y=100
