@@ -1,8 +1,6 @@
-update=Sun 23 Aug 2015 11:27:44 AM EDT
+update=Sun 23 Aug 2015 10:09:12 PM EDT
 version=1
-last_client=eeschema
-[general]
-version=1
+last_client=kicad
 [cvpcb]
 version=1
 NetIExt=net
@@ -154,3 +152,5 @@ LibName51=tutorial-cache
 LibName52=usb_ports
 LibName53=mtl
 LibName54=switch-omron
+[general]
+version=1

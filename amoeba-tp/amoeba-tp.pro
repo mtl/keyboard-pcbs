@@ -1,8 +1,6 @@
-update=Sun 23 Aug 2015 08:07:15 AM EDT
+update=Sun 23 Aug 2015 10:13:32 PM EDT
 version=1
-last_client=pcbnew
-[general]
-version=1
+last_client=kicad
 [cvpcb]
 version=1
 NetIExt=net
@@ -152,3 +150,5 @@ LibName58=tqfp
 LibName59=TQFP44
 LibName60=usb_ports
 LibName61=mtl
+[general]
+version=1
