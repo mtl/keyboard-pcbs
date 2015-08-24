@@ -2,3 +2,6 @@
 .*.sw?
 *.bak
 *.kicad_pcb-bak
+amoeba/amoeba.zip
+amoeba-spc/amoeba-spc.zip
+amoeba-tp/amoeba-tp.zip
