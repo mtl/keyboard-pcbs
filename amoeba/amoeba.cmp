@@ -1,10 +1,17 @@
-Cmp-Mod V01 Created by CvPcb (2013-may-18)-stable date = Sat 22 Aug 2015 11:12:16 PM EDT
+Cmp-Mod V01 Created by CvPcb (2013-may-18)-stable date = Mon 24 Aug 2015 12:28:41 AM EDT
 
 BeginCmp
 TimeStamp = /55D92FDB/55D9304C;
 Reference = D0;
 ValeurCmp = DIODE;
 IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D92FDB/55DA9CD1;
+Reference = D1;
+ValeurCmp = DIODE;
+IdModule  = SM0805D;
 EndCmp
 
 BeginCmp
@@ -54,6 +61,13 @@ TimeStamp = /55D92FDB/55D93058;
 Reference = R0;
 ValeurCmp = RESISTOR;
 IdModule  = RESISTOR;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D92FDB/55DA9D6F;
+Reference = R1;
+ValeurCmp = RESISTOR;
+IdModule  = SM0805;
 EndCmp
 
 BeginCmp

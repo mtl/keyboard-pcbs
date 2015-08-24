@@ -112,31 +112,26 @@ F 3 "~" H 5400 4200 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	5150 4200 5150 4000
+	5150 4000 5150 4400
 Connection ~ 6050 4200
 Wire Wire Line
 	5850 3800 6250 3800
 Connection ~ 6250 3800
-Connection ~ 5850 3300
 Wire Wire Line
 	6050 4400 6050 3200
 Wire Wire Line
 	6250 3200 6250 4400
 Wire Wire Line
-	5150 3300 6400 3300
-Wire Wire Line
 	5150 4000 6400 4000
 Wire Wire Line
-	5450 3500 5450 3550
-Wire Wire Line
-	5850 3500 5850 3300
+	5450 3150 5450 3550
 Text HLabel 6250 3200 1    60   BiDi ~ 0
 SC0
 Text HLabel 6050 3200 1    60   BiDi ~ 0
 LC0
-Text HLabel 6400 3300 2    60   BiDi ~ 0
+Text HLabel 6400 2900 2    60   BiDi ~ 0
 SR1
-Text HLabel 5150 3300 0    60   BiDi ~ 0
+Text HLabel 5150 2900 0    60   BiDi ~ 0
 SR0
 Text HLabel 6400 4000 2    60   BiDi ~ 0
 LR1
@@ -146,4 +141,36 @@ Text HLabel 6050 4400 3    60   BiDi ~ 0
 LC1
 Text HLabel 6250 4400 3    60   BiDi ~ 0
 SC1
+$Comp
+L DIODE D1
+U 1 1 55DA9CD1
+P 5650 3150
+F 0 "D1" H 5650 3250 40  0000 C CNN
+F 1 "DIODE" H 5650 3050 40  0000 C CNN
+F 2 "~" H 5650 3150 60  0000 C CNN
+F 3 "~" H 5650 3150 60  0000 C CNN
+	1    5650 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 2900 5150 2900
+Wire Wire Line
+	5850 2900 5850 3500
+Connection ~ 5850 2900
+Connection ~ 5850 3150
+Connection ~ 5450 3500
+$Comp
+L RESISTOR R1
+U 1 1 55DA9D6F
+P 5400 4400
+F 0 "R1" V 5400 4300 50  0000 C CNN
+F 1 "RESISTOR" H 5400 4500 50  0001 C CNN
+F 2 "~" H 5400 4400 60  0000 C CNN
+F 3 "~" H 5400 4400 60  0000 C CNN
+	1    5400 4400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5650 4400 5650 4200
+Connection ~ 5150 4200
 $EndSCHEMATC
