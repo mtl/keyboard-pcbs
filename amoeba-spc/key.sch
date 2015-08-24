@@ -60,7 +60,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 2
 Title ""
-Date "23 aug 2015"
+Date "24 aug 2015"
 Rev ""
 Comp ""
 Comment1 ""
@@ -112,39 +112,25 @@ F 3 "~" H 5400 4200 60  0000 C CNN
 	1    5400 4200
 	0    1    1    0   
 $EndComp
-Connection ~ 5450 3550
-Connection ~ 5850 3800
-Connection ~ 5150 3300
-Connection ~ 6250 3200
-Connection ~ 6050 3200
-Connection ~ 6050 4400
-Connection ~ 5850 3500
-Connection ~ 5650 4200
 Wire Wire Line
 	5150 4200 5150 4000
-Connection ~ 5150 4000
-Connection ~ 5150 4200
 Connection ~ 6050 4200
 Wire Wire Line
 	5850 3800 6250 3800
 Connection ~ 6250 3800
-Connection ~ 6400 4000
 Connection ~ 5850 3300
-Connection ~ 6250 4400
 Wire Wire Line
 	6050 4400 6050 3200
 Wire Wire Line
 	6250 3200 6250 4400
 Wire Wire Line
 	5150 3300 6400 3300
-Connection ~ 6400 3300
 Wire Wire Line
 	5150 4000 6400 4000
 Wire Wire Line
 	5450 3500 5450 3550
 Wire Wire Line
 	5850 3500 5850 3300
-Connection ~ 5450 3500
 Text HLabel 6250 3200 1    60   BiDi ~ 0
 SC0
 Text HLabel 6050 3200 1    60   BiDi ~ 0
