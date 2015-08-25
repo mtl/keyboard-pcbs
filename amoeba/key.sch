@@ -57,9 +57,9 @@ EELAYER 27 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 2
+Sheet 2 4
 Title ""
-Date "24 aug 2015"
+Date "25 aug 2015"
 Rev ""
 Comp ""
 Comment1 ""
@@ -67,110 +67,56 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L MX1A S0
-U 1 1 55D93046
-P 5650 3950
-F 0 "S0" H 5500 4200 60  0000 C CNN
-F 1 "MX1A" H 5650 4050 60  0000 C CNN
-F 2 "~" H 5650 3950 60  0000 C CNN
-F 3 "~" H 5650 3950 60  0000 C CNN
-	1    5650 3950
-	1    0    0    -1  
-$EndComp
-$Comp
-L DIODE D0
-U 1 1 55D9304C
-P 5650 3500
-F 0 "D0" H 5650 3600 40  0000 C CNN
-F 1 "DIODE" H 5650 3400 40  0000 C CNN
-F 2 "~" H 5650 3500 60  0000 C CNN
-F 3 "~" H 5650 3500 60  0000 C CNN
-	1    5650 3500
-	1    0    0    -1  
-$EndComp
-$Comp
-L LED L0
-U 1 1 55D93052
-P 5850 4200
-F 0 "L0" H 5850 4300 50  0000 C CNN
-F 1 "LED" H 5850 4100 50  0000 C CNN
-F 2 "~" H 5850 4200 60  0000 C CNN
-F 3 "~" H 5850 4200 60  0000 C CNN
-	1    5850 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L RESISTOR R0
-U 1 1 55D93058
-P 5400 4200
-F 0 "R0" V 5400 4100 50  0000 C CNN
-F 1 "RESISTOR" H 5400 4300 50  0001 C CNN
-F 2 "~" H 5400 4200 60  0000 C CNN
-F 3 "~" H 5400 4200 60  0000 C CNN
-	1    5400 4200
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	5150 4000 5150 4400
-Connection ~ 6050 4200
-Wire Wire Line
-	5850 3800 6250 3800
-Connection ~ 6250 3800
-Wire Wire Line
-	6050 4400 6050 3200
-Wire Wire Line
-	6250 3200 6250 4400
-Wire Wire Line
-	5150 4000 6400 4000
-Wire Wire Line
-	5450 3150 5450 3550
-Text HLabel 6250 3200 1    60   BiDi ~ 0
-SC0
-Text HLabel 6050 3200 1    60   BiDi ~ 0
+Text HLabel 5550 4100 0    60   BiDi ~ 0
 LC0
-Text HLabel 6400 2900 2    60   BiDi ~ 0
-SR1
-Text HLabel 5150 2900 0    60   BiDi ~ 0
-SR0
-Text HLabel 6400 4000 2    60   BiDi ~ 0
+Text HLabel 6650 4250 2    60   BiDi ~ 0
 LR1
-Text HLabel 5150 4000 0    60   BiDi ~ 0
+Text HLabel 5550 4250 0    60   BiDi ~ 0
 LR0
-Text HLabel 6050 4400 3    60   BiDi ~ 0
+Text HLabel 6650 4100 2    60   BiDi ~ 0
 LC1
-Text HLabel 6250 4400 3    60   BiDi ~ 0
+$Sheet
+S 5800 4000 600  350 
+U 55DBAE59
+F0 "led" 39
+F1 "led.sch" 39
+F2 "LC0" B L 5800 4100 60 
+F3 "LR0" B L 5800 4250 60 
+F4 "LC1" B R 6400 4100 60 
+F5 "LR1" I R 6400 4250 60 
+$EndSheet
+$Sheet
+S 5800 3300 600  350 
+U 55DBAE5B
+F0 "switch" 39
+F1 "switch.sch" 39
+F2 "SC0" B L 5800 3400 60 
+F3 "SR1" B R 6400 3550 60 
+F4 "SR0" B L 5800 3550 60 
+F5 "SC1" B R 6400 3400 60 
+$EndSheet
+Wire Wire Line
+	6650 4100 6400 4100
+Wire Wire Line
+	6400 4250 6650 4250
+Wire Wire Line
+	5800 4250 5550 4250
+Wire Wire Line
+	5550 4100 5800 4100
+Text HLabel 5500 3400 0    60   Input ~ 0
+SC0
+Text HLabel 6700 3400 2    60   Input ~ 0
 SC1
-$Comp
-L DIODE D1
-U 1 1 55DA9CD1
-P 5650 3150
-F 0 "D1" H 5650 3250 40  0000 C CNN
-F 1 "DIODE" H 5650 3050 40  0000 C CNN
-F 2 "~" H 5650 3150 60  0000 C CNN
-F 3 "~" H 5650 3150 60  0000 C CNN
-	1    5650 3150
-	1    0    0    -1  
-$EndComp
+Text HLabel 6700 3550 2    60   Input ~ 0
+SR1
+Text HLabel 5500 3550 0    60   Input ~ 0
+SR0
 Wire Wire Line
-	6400 2900 5150 2900
+	6700 3400 6400 3400
 Wire Wire Line
-	5850 2900 5850 3500
-Connection ~ 5850 2900
-Connection ~ 5850 3150
-Connection ~ 5450 3500
-$Comp
-L RESISTOR R1
-U 1 1 55DA9D6F
-P 5400 4400
-F 0 "R1" V 5400 4300 50  0000 C CNN
-F 1 "RESISTOR" H 5400 4500 50  0001 C CNN
-F 2 "~" H 5400 4400 60  0000 C CNN
-F 3 "~" H 5400 4400 60  0000 C CNN
-	1    5400 4400
-	0    1    1    0   
-$EndComp
+	6400 3550 6700 3550
 Wire Wire Line
-	5650 4400 5650 4200
-Connection ~ 5150 4200
+	5800 3550 5500 3550
+Wire Wire Line
+	5500 3400 5800 3400
 $EndSCHEMATC
