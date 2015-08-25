@@ -1,38 +1,73 @@
-Cmp-Mod V01 Created by CvPcb (2013-may-18)-stable date = Sat 22 Aug 2015 12:19:12 AM EDT
+Cmp-Mod V01 Created by CvPcb (2013-jul-07)-stable date = Tue 25 Aug 2015 06:35:17 PM EDT
 
 BeginCmp
-TimeStamp = /55D7BD97/55D7BDAE;
-Reference = D0:0;
+TimeStamp = /55D95A82/55DBAE5B/55DBAE93;
+Reference = D0:0:0;
 ValeurCmp = DIODE;
 IdModule  = D3;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D8588F/55D7BDAE;
-Reference = D0:1;
+TimeStamp = /55D95A82/55DBAE5B/55DBAE85;
+Reference = D0:0:1;
+ValeurCmp = DIODE;
+IdModule  = SM0805D;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D94306/55DBAE5B/55DBAE93;
+Reference = D0:1:0;
 ValeurCmp = DIODE;
 IdModule  = D3;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D88595/55D7BDAE;
-Reference = D1:0;
+TimeStamp = /55D94306/55DBAE5B/55DBAE85;
+Reference = D0:1:1;
+ValeurCmp = DIODE;
+IdModule  = SM0805D;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D936FC/55DBAE5B/55DBAE93;
+Reference = D1:0:0;
 ValeurCmp = DIODE;
 IdModule  = D3;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D8859F/55D7BDAE;
-Reference = D1:1;
+TimeStamp = /55D936FC/55DBAE5B/55DBAE85;
+Reference = D1:0:1;
+ValeurCmp = DIODE;
+IdModule  = SM0805D;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D94310/55DBAE5B/55DBAE93;
+Reference = D1:1:0;
 ValeurCmp = DIODE;
 IdModule  = D3;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D89165/55D7BDAE;
-Reference = D2:1;
+TimeStamp = /55D94310/55DBAE5B/55DBAE85;
+Reference = D1:1:1;
+ValeurCmp = DIODE;
+IdModule  = SM0805D;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D9491A/55DBAE5B/55DBAE93;
+Reference = D2:1:0;
 ValeurCmp = DIODE;
 IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D9491A/55DBAE5B/55DBAE85;
+Reference = D2:1:1;
+ValeurCmp = DIODE;
+IdModule  = SM0805D;
 EndCmp
 
 BeginCmp
@@ -78,35 +113,35 @@ IdModule  = Pad;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D7BD97/55D7BDE4;
+TimeStamp = /55D95A82/55DBAE59/55DBAEC6;
 Reference = L0:0;
 ValeurCmp = LED;
 IdModule  = LED-3MM;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D8588F/55D7BDE4;
+TimeStamp = /55D94306/55DBAE59/55DBAEC6;
 Reference = L0:1;
 ValeurCmp = LED;
 IdModule  = LED-3MM;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D88595/55D7BDE4;
+TimeStamp = /55D936FC/55DBAE59/55DBAEC6;
 Reference = L1:0;
 ValeurCmp = LED;
 IdModule  = LED-3MM;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D8859F/55D7BDE4;
+TimeStamp = /55D94310/55DBAE59/55DBAEC6;
 Reference = L1:1;
 ValeurCmp = LED;
 IdModule  = LED-3MM;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D89165/55D7BDE4;
+TimeStamp = /55D9491A/55DBAE59/55DBAEC6;
 Reference = L2:1;
 ValeurCmp = LED;
 IdModule  = LED-3MM;
@@ -183,70 +218,105 @@ IdModule  = Pad;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D7BD97/55D7BDEA;
-Reference = R0:0;
+TimeStamp = /55D95A82/55DBAE59/55DBAECC;
+Reference = R0:0:0;
 ValeurCmp = RESISTOR;
 IdModule  = RESISTOR;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D8588F/55D7BDEA;
-Reference = R0:1;
+TimeStamp = /55D95A82/55DBAE59/55DBAEDA;
+Reference = R0:0:1;
+ValeurCmp = RESISTOR;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D94306/55DBAE59/55DBAECC;
+Reference = R0:1:0;
 ValeurCmp = RESISTOR;
 IdModule  = RESISTOR;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D88595/55D7BDEA;
-Reference = R1:0;
+TimeStamp = /55D94306/55DBAE59/55DBAEDA;
+Reference = R0:1:1;
+ValeurCmp = RESISTOR;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D936FC/55DBAE59/55DBAECC;
+Reference = R1:0:0;
 ValeurCmp = RESISTOR;
 IdModule  = RESISTOR;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D8859F/55D7BDEA;
-Reference = R1:1;
+TimeStamp = /55D936FC/55DBAE59/55DBAEDA;
+Reference = R1:0:1;
+ValeurCmp = RESISTOR;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D94310/55DBAE59/55DBAECC;
+Reference = R1:1:0;
 ValeurCmp = RESISTOR;
 IdModule  = RESISTOR;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D89165/55D7BDEA;
-Reference = R2:1;
+TimeStamp = /55D94310/55DBAE59/55DBAEDA;
+Reference = R1:1:1;
+ValeurCmp = RESISTOR;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D9491A/55DBAE59/55DBAECC;
+Reference = R2:1:0;
 ValeurCmp = RESISTOR;
 IdModule  = RESISTOR;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D7BD97/55D7BDA8;
+TimeStamp = /55D9491A/55DBAE59/55DBAEDA;
+Reference = R2:1:1;
+ValeurCmp = RESISTOR;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D95A82/55DBAE5B/55DBAE7F;
 Reference = S0:0;
 ValeurCmp = MX1A;
 IdModule  = CHERRY_PCB_100H;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D8588F/55D7BDA8;
+TimeStamp = /55D94306/55DBAE5B/55DBAE7F;
 Reference = S0:1;
 ValeurCmp = MX1A;
 IdModule  = CHERRY_PCB_100H;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D88595/55D7BDA8;
+TimeStamp = /55D936FC/55DBAE5B/55DBAE7F;
 Reference = S1:0;
 ValeurCmp = MX1A;
 IdModule  = CHERRY_PCB_100H;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D8859F/55D7BDA8;
+TimeStamp = /55D94310/55DBAE5B/55DBAE7F;
 Reference = S1:1;
 ValeurCmp = MX1A;
 IdModule  = CHERRY_PCB_100H;
 EndCmp
 
 BeginCmp
-TimeStamp = /55D89165/55D7BDA8;
+TimeStamp = /55D9491A/55DBAE5B/55DBAE7F;
 Reference = S2:1;
 ValeurCmp = MX1A;
 IdModule  = CHERRY_PCB_100H;
