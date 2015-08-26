@@ -1,0 +1,52 @@
+Cmp-Mod V01 Created by CvPcb (2013-may-18)-stable date = Tue 25 Aug 2015 08:19:53 PM EDT
+
+BeginCmp
+TimeStamp = /55DD05D7;
+Reference = GND0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55DD05D1;
+Reference = PC0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D71CAE;
+Reference = PL0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55DD05CB;
+Reference = PR0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55DD05BF;
+Reference = SC0;
+ValeurCmp = 10-XX;
+IdModule  = DTSJW-66N;
+EndCmp
+
+BeginCmp
+TimeStamp = /55DD04B8;
+Reference = SL0;
+ValeurCmp = 10-XX;
+IdModule  = DTSJW-66N;
+EndCmp
+
+BeginCmp
+TimeStamp = /55DD05C5;
+Reference = SR0;
+ValeurCmp = 10-XX;
+IdModule  = DTSJW-66N;
+EndCmp
+
+EndListe
