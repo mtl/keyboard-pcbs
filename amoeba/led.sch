@@ -59,7 +59,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 4
 Title ""
-Date "13 sep 2015"
+Date "15 sep 2015"
 Rev ""
 Comp ""
 Comment1 ""
@@ -118,4 +118,6 @@ Wire Wire Line
 	5100 3350 6100 3350
 Connection ~ 5300 3350
 Connection ~ 5500 3350
+Text Label 5400 3850 3    60   ~ 0
+N-LR0
 $EndSCHEMATC
