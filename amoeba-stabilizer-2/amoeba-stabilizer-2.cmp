@@ -1,0 +1,129 @@
+Cmp-Mod V01 Created by CvPcb (2013-may-18)-stable date = Wed 16 Sep 2015 10:56:13 PM EDT
+
+BeginCmp
+TimeStamp = /55D92FDB/55DBAE5B/55DBAE93;
+Reference = D0;
+ValeurCmp = DIODE;
+IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D92FDB/55DBAE5B/55DBAE85;
+Reference = D1;
+ValeurCmp = DIODE;
+IdModule  = SM0805D;
+EndCmp
+
+BeginCmp
+TimeStamp = /55FA2D6A;
+Reference = LC0:0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D71CB4;
+Reference = LC0:1;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D71CC6;
+Reference = LC0:2;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D928BE;
+Reference = LC0:3;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D92FDB/55DBAE59/55DBAEC6;
+Reference = LED0;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D71CBA;
+Reference = LR0:0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D8D161;
+Reference = LR0:1;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D92FDB/55DBAE59/55DBAECC;
+Reference = R0;
+ValeurCmp = RESISTOR;
+IdModule  = RESISTOR;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D92FDB/55DBAE59/55DBAEDA;
+Reference = R1;
+ValeurCmp = RESISTOR;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D92FDB/55DBAE5B/55DBAE7F;
+Reference = S0;
+ValeurCmp = MX1A;
+IdModule  = ALPS_CHERRY_PCB_100H;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D71CAE;
+Reference = SC0:0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55F593C9;
+Reference = SC0:1;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D71CCC;
+Reference = SC0:2;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D928B8;
+Reference = SC0:3;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D71CC0;
+Reference = SR0:0;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /55D8D15B;
+Reference = SR0:1;
+ValeurCmp = CONN_1;
+IdModule  = Pad;
+EndCmp
+
+EndListe
