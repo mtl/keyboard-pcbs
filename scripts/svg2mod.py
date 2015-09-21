@@ -1,9 +1,32 @@
 #!/usr/bin/python
 
+import argparse
 import datetime
 from pprint import pformat, pprint
 import re
 import xml.etree.ElementTree as ET
+
+
+#----------------------------------------------------------------------------
+
+def main():
+
+    # Need at least input and output file names:
+    args, parser = get_arguments()
+    if (
+        args.input_file_name is None or
+        args.output_file_name is None
+    ):
+        parser.print_help()
+        sys.exit( 0 )
+
+    svg2mod(
+        input_file_name = args.input_file_name,
+        output_file_name = args.output_file_name,
+        module_name = args.module_name,
+        module_value = args.module_value,
+        factor = args.scale_factor,
+    )
 
 
 #----------------------------------------------------------------------------
@@ -54,6 +77,74 @@ def flip_path( path ):
 
     for point in path:
         point[ 0 ] = 0.0 - point[ 0 ]
+
+
+#----------------------------------------------------------------------------
+
+def get_arguments():
+
+    parser = argparse.ArgumentParser(
+        description = 'svg2mod.'
+    )
+
+    #------------------------------------------------------------------------
+
+    parser.add_argument(
+        '-i', '--input-file',
+        type = str,
+        dest = 'input_file_name',
+        metavar = 'input-file-name',
+        help = "name of the SVG file",
+    )
+
+    parser.add_argument(
+        '-o', '--output-file',
+        type = str,
+        dest = 'output_file_name',
+        metavar = 'output-file-name',
+        help = "name of the module file",
+    )
+
+    parser.add_argument(
+        '-f', '--factor',
+        type = int,
+        dest = 'scale_factor',
+        metavar = 'scale-factor',
+        help = "scale paths by this factor",
+        default = 1,
+    )
+
+    parser.add_argument(
+        '-n', '--name', '--module-name',
+        type = str,
+        dest = 'module_name',
+        metavar = 'module-name',
+        help = "base name of the module",
+        default = "svg2mod",
+    )
+
+    parser.add_argument(
+        '--value', '--module-value',
+        type = str,
+        dest = 'module_value',
+        metavar = 'module-value',
+        help = "value of the module",
+        default = "G***",
+    )
+
+    parser.add_argument(
+        '--front-only',
+        dest = 'front_only',
+        action = 'store_const',
+        const = True,
+        help = "omit output of back module",
+        default = False,
+    )
+
+
+    #------------------------------------------------------------------------
+
+    return parser.parse_args(), parser
 
 
 #----------------------------------------------------------------------------
@@ -348,13 +439,6 @@ def write_path( f, path, layer ):
 
 #----------------------------------------------------------------------------
 
-svg2mod(
-    #input_file_name = "dt.export.svg",
-    input_file_name = "test.svg",
-    output_file_name = "test2.mod",
-    module_name = "Test-Module",
-    module_value = "G***",
-    factor = 1,
-)
+main()
 
 
