@@ -16,9 +16,9 @@ import sys
 import xml.etree.ElementTree as ET
 
 # To-do:
-# Command-line arguments
-# silkscreen, edge cuts, other layers?
 # support lines, arcs, and circles
+# Mark center with a circle or a group or something...
+#    ...And adjust text labels accordingly
 
 #----------------------------------------------------------------------------
 
@@ -43,8 +43,8 @@ def main():
 
     svg2mod.write(
         args.output_file_name,
-        # Inkscape uses 90 DPI, PCBNew uses "decimil" (10K DPI):
-        args.scale_factor * 10000.0 / 90.0,
+        args.scale_factor,
+        args.precision,
         include_reverse = not args.front_only
     )
 
@@ -117,7 +117,7 @@ class Svg2Mod( object ):
 
                 segments = item.segments( precision = precision )
 
-                print( "    Writing path with {} segments".format( len( segments ) ) )
+                #print( "    Writing path with {} segments".format( len( segments ) ) )
 
                 if len( segments ) > 2:
                     print(
@@ -181,7 +181,7 @@ T1 0 {3} 600 600 0 120 N I 21 "{2}"
             if not front:
                 layer = self.layer_map[ name ][ 1 ]
 
-            print( "  Writing layer: {}".format( name ) )
+            #print( "  Writing layer: {}".format( name ) )
             self._write_items( f, group.items, scale_factor, precision, not front, layer )
 
         f.write( "$EndMODULE {0}\n".format( module_name ) )
@@ -191,7 +191,7 @@ T1 0 {3} 600 600 0 120 N I 21 "{2}"
 
     def _write_segment( self, f, points, scale_factor, flip, layer ):
 
-        print( "      Writing segment with {} points".format( len( points ) ) )
+        #print( "      Writing segment with {} points".format( len( points ) ) )
 
         for point in points:
 
@@ -267,6 +267,9 @@ T1 0 {3} 600 600 0 120 N I 21 "{2}"
         precision = 20,
         include_reverse = True
     ):
+        # Inkscape uses 90 DPI, PCBNew uses "decimil" (10K DPI):
+        scale_factor *= 10000.0 / 90.0
+
         f = open( output_file_name, 'w' )
         f.write( """PCBNEW-LibModule-V1  {0}
 $INDEX
@@ -329,6 +332,15 @@ def get_arguments():
         metavar = 'scale-factor',
         help = "scale paths by this factor",
         default = 1.0,
+    )
+
+    parser.add_argument(
+        '-p', '--precision',
+        type = int,
+        dest = 'precision',
+        metavar = 'precision',
+        help = "smoothness for approximating curves with line segments (int)",
+        default = 10,
     )
 
     parser.add_argument(
