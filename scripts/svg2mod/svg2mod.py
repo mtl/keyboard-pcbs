@@ -16,7 +16,9 @@ import sys
 import xml.etree.ElementTree as ET
 
 # To-do:
-# support lines, arcs, and circles
+# use new kicad pretty module format, add support for line thicknesses
+# auto horizontal asymmetry detection
+# support lines, arcs, rects, circles, etc.
 # Mark center with a circle or a group or something...
 #    ...And adjust text labels accordingly
 
@@ -63,6 +65,39 @@ class Svg2Mod( object ):
         'comments' : [ 25, 25 ],
     }
 
+    # pcbnew/pcb_parser.cpp (pretty format):
+    #m_layerMasks[ "*.Cu" ]      = LSET::AllCuMask();
+    #m_layerMasks[ "F&B.Cu" ]    = LSET( 2, F_Cu, B_Cu );
+    #m_layerMasks[ "*.Adhes" ]   = LSET( 2, B_Adhes, F_Adhes );
+    #m_layerMasks[ "*.Paste" ]   = LSET( 2, B_Paste, F_Paste );
+    #m_layerMasks[ "*.Mask" ]    = LSET( 2, B_Mask,  F_Mask );
+    #m_layerMasks[ "*.SilkS" ]   = LSET( 2, B_SilkS, F_SilkS );
+    #m_layerMasks[ "*.Fab" ]     = LSET( 2, B_Fab,   F_Fab );
+    #m_layerMasks[ "*.CrtYd" ]   = LSET( 2, B_CrtYd, F_CrtYd );
+
+
+    #------------------------------------------------------------------------
+
+    @staticmethod
+    def _get_fill_stroke( item ):
+
+        fill = True
+        stroke = True
+
+        for property in item.style.split( ";" ):
+
+            nv = property.split( ":" );
+            name = nv[ 0 ].strip()
+            value = nv[ 1 ].strip()
+
+            if name == "fill" and value == "none":
+                fill = False
+
+            elif name == "stroke" and value == "none":
+                stroke = False
+
+        return fill, stroke
+
 
     #------------------------------------------------------------------------
 
@@ -105,6 +140,47 @@ class Svg2Mod( object ):
 
     #------------------------------------------------------------------------
 
+    # Apply all transformations and rounding, then remove duplicate
+    # consecutive points along the path.
+    def _collapse_points( self, points, scale_factor, flip ):
+
+        new_points = []
+        for point in points:
+
+            point = self._transform_point( point, scale_factor, flip )
+
+            point.x = int( point.x )
+            point.y = int( point.y )
+
+            if (
+                len( new_points ) < 1 or
+                point.x != new_points[ -1 ].x or
+                point.y != new_points[ -1 ].y
+            ):
+                new_points.append( point )
+
+        return new_points
+
+
+    #------------------------------------------------------------------------
+
+    def _transform_point( self, point, scale_factor, flip ):
+
+        transformed_point = svg.Point(
+            #point.x * scale_factor,
+            #point.y * scale_factor,
+            ( point.x + self.translation.x ) * scale_factor,
+            ( point.y + self.translation.y ) * scale_factor,
+        )
+
+        if flip:
+            transformed_point.x *= -1
+
+        return transformed_point
+
+
+    #------------------------------------------------------------------------
+
     def _write_items( self, f, items, scale_factor, precision, flip, layer ):
 
         for item in items:
@@ -117,30 +193,13 @@ class Svg2Mod( object ):
 
                 segments = item.segments( precision = precision )
 
-                #print( "    Writing path with {} segments".format( len( segments ) ) )
+                fill, stroke = self._get_fill_stroke( item )
 
-                if len( segments ) > 2:
-                    print(
-                        "Warning: " +
-                        "Not sure if Pcbnew supports more than 2 segments per path."
-                    )
+                if fill:
+                    self._write_polygon_filled( f, segments, scale_factor, flip, layer )
 
-                total_points = 0
-                for points in segments:
-                    num_points = len( points )
-                    if num_points < 3:
-                        print(
-                            "Warning: " +
-                            "Segment has only {} points (not a polygon?)".format( num_points )
-                        )
-                    total_points += num_points
-
-                f.write( "DP 0 0 0 0 {} 1 {}\n".format(
-                    total_points, layer
-                ) )
-
-                for points in segments:
-                    self._write_segment( f, points, scale_factor, flip, layer )
+                if stroke:
+                    self._write_polygon_outline( f, segments, scale_factor, flip, layer )
 
             else:
                 print( "Unsupported SVG element: {}".format(
@@ -189,39 +248,93 @@ T1 0 {3} 600 600 0 120 N I 21 "{2}"
 
     #------------------------------------------------------------------------
 
-    def _write_segment( self, f, points, scale_factor, flip, layer ):
+    def _write_polygon_filled( self, f, segments, scale_factor, flip, layer ):
 
-        #print( "      Writing segment with {} points".format( len( points ) ) )
+        print( "    Writing filled polygon with {} segments".format( len( segments ) ) )
 
-        for point in points:
+        if len( segments ) > 2:
+            print(
+                "Warning: " +
+                "Not sure if Pcbnew supports more than 2 segments per path."
+            )
 
-            #print( "        {}, {}".format( point.x, point.y ) )
+        collapsed_segments = []
 
-            x = ( point.x + self.translation.x ) * scale_factor
-            y = ( point.y + self.translation.y ) * scale_factor
+        total_points = 0
+        for points in segments:
 
-            if flip: x *= -1
+            points = self._collapse_points( points, scale_factor, flip )
+            collapsed_segments.append( points )
 
+            num_points = len( points )
+            if num_points < 3:
+                print(
+                    "Warning: " +
+                    "Segment has only {} points (not a polygon?)".format( num_points )
+                )
+            total_points += num_points
+
+        if len( collapsed_segments ) > 1:
+            total_points += 1
+
+        f.write( "DP 0 0 0 0 {} 1 {}\n".format(
+            total_points, layer
+        ) )
+
+        for points in collapsed_segments:
+
+            #print( "      Writing segment with {} points".format( len( points ) ) )
+
+            if (
+                points[ 0 ].x != points[ -1 ].x or
+                points[ 0 ].y != points[ -1 ].y
+            ):
+                print( "Warning: Polygon is not closed. start={} end={}".format(
+                    points[ 0 ], points[ -1 ]
+                ) )
+
+            #f.write( "Segment begin\n" )
+
+            for point in points:
+
+                #print( "        {}, {}".format( point.x, point.y ) )
+
+                f.write( "Dl {} {}\n".format(
+                    int( point.x ), int( point.y )
+                ) )
+
+        if len( collapsed_segments ) > 1:
             f.write( "Dl {} {}\n".format(
-                int( x ), int( y )
+                int( collapsed_segments[ 0 ][ 0 ].x ), int( collapsed_segments[ 0 ][ 0 ].y )
             ) )
+
+            #f.write( "Segment end\n" )
 
 
     #------------------------------------------------------------------------
 
-    def center( self ):
+    def _write_polygon_outline( self, f, segments, scale_factor, flip, layer ):
 
-        min_point, max_point = self.svg.bbox()
+        for points in segments:
 
-        adjust_x = min_point.x + ( max_point.x - min_point.x ) / 2.0
-        adjust_y = min_point.y + ( max_point.y - min_point.y ) / 2.0
+            #f.write( "Outline begin\n" )
 
-        self.svg.translate(
-            svg.Point(
-                0.0 - adjust_x,
-                0.0 - adjust_y,
-            )
-        )
+            points = self._collapse_points( points, scale_factor, flip )
+
+            prior_point = None
+            for point in points:
+
+                if prior_point is not None:
+
+                    f.write( "DS {} {} {} {} 1 {}\n".format(
+                        int( prior_point.x ), int( prior_point.y ),
+                        int( point.x ), int( point.y ),
+                        layer
+                    ) )
+
+                prior_point = point
+
+            #f.write( "Outline end\n" )
 
 
     #------------------------------------------------------------------------
