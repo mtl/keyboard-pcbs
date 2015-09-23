@@ -127,7 +127,7 @@ class Svg2Mod( object ):
 
     @staticmethod
     def _convert_decimil_to_mm( decimil ):
-        return decimil * 0.00254
+        return float( decimil ) * 0.00254
 
 
     #------------------------------------------------------------------------
@@ -139,11 +139,12 @@ class Svg2Mod( object ):
 
     #------------------------------------------------------------------------
 
-    @staticmethod
-    def _get_fill_stroke( item ):
+    @classmethod
+    def _get_fill_stroke( cls, item ):
 
         fill = True
         stroke = True
+        stroke_width = cls._convert_decimil_to_mm( 1 )
 
         for property in item.style.split( ";" ):
 
@@ -157,7 +158,10 @@ class Svg2Mod( object ):
             elif name == "stroke" and value == "none":
                 stroke = False
 
-        return fill, stroke
+            elif name == "stroke-width":
+                stroke_width = float( value ) * 25.4 / 90.0
+
+        return fill, stroke, stroke_width
 
 
     #------------------------------------------------------------------------
@@ -254,7 +258,7 @@ class Svg2Mod( object ):
 
                 segments = item.segments( precision = config.precision )
 
-                fill, stroke = self._get_fill_stroke( item )
+                fill, stroke, stroke_width = self._get_fill_stroke( item )
 
                 if fill:
                     self._write_polygon_filled(
@@ -262,8 +266,14 @@ class Svg2Mod( object ):
                     )
 
                 if stroke:
+
+                    if not config.use_mm:
+                        stroke_width = self._convert_mm_to_decimil(
+                            stroke_width
+                        )
+
                     self._write_polygon_outline(
-                        config, segments, scale_factor, flip, layer
+                        config, segments, stroke_width, flip, layer
                     )
 
             else:
@@ -453,7 +463,9 @@ T1 0 {5} {2} {2} 0 {3} N I 21 "{4}"
 
     #------------------------------------------------------------------------
 
-    def _write_polygon_outline( self, config, segments, flip, layer ):
+    def _write_polygon_outline( self, config, segments, stroke_width, flip, layer ):
+
+        print( "    Writing polygon outline with {} segments".format( len( segments ) ) )
 
         for points in segments:
 
@@ -473,16 +485,17 @@ T1 0 {5} {2} {2} 0 {3} N I 21 "{4}"
                                 prior_point.x, prior_point.y,
                                 point.x, point.y,
                                 layer,
-                                0.381,
+                                stroke_width,
                             )
                         )
 
                     else:
-                        config.output_file.write( "DS {} {} {} {} 0.00254 {}\n".format(
+                        config.output_file.write( "DS {} {} {} {} {} {}\n".format(
                             prior_point.x,
                             prior_point.y,
                             point.x,
                             point.y,
+                            stroke_width,
                             layer
                         ) )
 
