@@ -9,11 +9,10 @@ import svg
 
 import argparse
 import datetime
-import itertools
+import os
 from pprint import pformat, pprint
 import re
 import sys
-import xml.etree.ElementTree as ET
 
 # To-do:
 # use new kicad pretty module format, add support for line thicknesses
@@ -28,14 +27,13 @@ import xml.etree.ElementTree as ET
 
 def main():
 
-    # Need at least input and output file names:
     args, parser = get_arguments()
-    if (
-        args.input_file_name is None or
-        args.output_file_name is None
-    ):
+
+    if args.input_file_name is None:
         parser.print_help()
         sys.exit( 0 )
+
+    pretty = args.format == 'pretty'
 
     svg2mod = Svg2Mod(
         args.input_file_name,
@@ -43,11 +41,23 @@ def main():
         args.module_value
     )
 
+    if args.output_file_name is None:
+
+        args.output_file_name = os.path.splitext(
+            os.path.basename( args.input_file_name )
+        )[ 0 ]
+
+        if pretty:
+            args.output_file_name += ".kicad_mod"
+        else:
+            args.output_file_name += ".mod"
+
     svg2mod.write(
         args.output_file_name,
         args.scale_factor,
         args.precision,
-        include_reverse = not args.front_only
+        include_reverse = not args.front_only,
+        pretty = pretty
     )
 
 
@@ -56,13 +66,13 @@ def main():
 class Svg2Mod( object ):
 
     layer_map = {
-        #'name' : [ front, back ],
-        'copper' : [ 15, 0 ],
-        'solder mask' : [ 23, 22 ],
-        'silkscreen' : [ 21, 20 ],
-        'glue' : [ 17, 16 ],
-        'edge cuts' : [ 28, 28 ],
-        'comments' : [ 25, 25 ],
+        #'name' : [ front, back, pretty-name ],
+        'copper' : [ 15, 0, "Cu" ],
+        'solder mask' : [ 23, 22, "Mask" ],
+        'silkscreen' : [ 21, 20, "SilkS" ],
+        'glue' : [ 17, 16, "Adhes" ], # or Paste?
+        'edge cuts' : [ 28, 28, "??" ],
+        'comments' : [ 25, 25, "??" ],
     }
 
     # pcbnew/pcb_parser.cpp (pretty format):
@@ -101,11 +111,12 @@ class Svg2Mod( object ):
 
     #------------------------------------------------------------------------
 
-    def __init__( self, input_file_name, module_name, module_value ):
+    def __init__( self, input_file_name, module_name, module_value, pretty = True ):
 
         self.input_file_name = input_file_name
         self.module_name = module_name
         self.module_value = module_value
+        self.pretty = pretty
 
         self.layers = {}
         for name in self.layer_map.iterkeys():
@@ -142,15 +153,16 @@ class Svg2Mod( object ):
 
     # Apply all transformations and rounding, then remove duplicate
     # consecutive points along the path.
-    def _collapse_points( self, points, scale_factor, flip ):
+    def _collapse_points( self, points, pretty, scale_factor, flip ):
 
         new_points = []
         for point in points:
 
             point = self._transform_point( point, scale_factor, flip )
 
-            point.x = int( point.x )
-            point.y = int( point.y )
+            if not pretty:
+                point.x = int( round( point.x ) )
+                point.y = int( round( point.y ) )
 
             if (
                 len( new_points ) < 1 or
@@ -181,12 +193,22 @@ class Svg2Mod( object ):
 
     #------------------------------------------------------------------------
 
-    def _write_items( self, f, items, scale_factor, precision, flip, layer ):
-
+    def _write_items(
+        self,
+        f,
+        pretty,
+        items,
+        scale_factor,
+        precision,
+        flip,
+        layer,
+    ):
         for item in items:
 
             if isinstance( item, svg.Group ):
-                self._write_items( f, item.items, scale_factor, precision, flip, layer )
+                self._write_items(
+                    f, pretty, item.items, scale_factor, precision, flip, layer
+                )
                 continue
 
             elif isinstance( item, svg.Path ):
@@ -196,10 +218,14 @@ class Svg2Mod( object ):
                 fill, stroke = self._get_fill_stroke( item )
 
                 if fill:
-                    self._write_polygon_filled( f, segments, scale_factor, flip, layer )
+                    self._write_polygon_filled(
+                        f, pretty, segments, scale_factor, flip, layer
+                    )
 
                 if stroke:
-                    self._write_polygon_outline( f, segments, scale_factor, flip, layer )
+                    self._write_polygon_outline(
+                        f, pretty, segments, scale_factor, flip, layer
+                    )
 
             else:
                 print( "Unsupported SVG element: {}".format(
@@ -209,46 +235,108 @@ class Svg2Mod( object ):
 
     #------------------------------------------------------------------------
 
-    def _write_module( self, f, scale_factor, precision, front = True ):
-
-        min_point, max_point = self.svg.bbox()
-
+    def _write_module(
+        self,
+        f,
+        pretty,
+        scale_factor,
+        precision,
+        include_reverse,
+        front,
+    ):
         if front:
-            module_name = "{}{}".format( self.module_name, "-Front" )
+            module_name = self.module_name
+            if include_reverse:
+                module_name += "-Front"
+            side = "F"
         else:
             module_name = "{}{}".format( self.module_name, "-Back" )
+            side = "B"
 
-        f.write( """$MODULE {0}
+        min_point, max_point = self.svg.bbox()
+        min_point = self._transform_point( min_point, scale_factor, flip = False )
+        max_point = self._transform_point( max_point, scale_factor, flip = False )
+        reference_y = min_point.y - 1200
+        value_y = max_point.y + 1400
+
+        if pretty:
+            if not front: f.write( "\n" )
+            f.write( """(module {0} (layer F.Cu) (tedit {1:8X})
+  (descr "{2}")
+  (tags {3})
+  (fp_text reference {4} (at 0 {5}) (layer {6}.SilkS) hide
+    (effects (font (size 2.032 2.032) (thickness 0.3048)))
+  )
+  (fp_text value {7} (at 0 {8}) (layer {6}.SilkS) hide
+    (effects (font (size 2.032 2.032) (thickness 0.3048)))
+  )""".format(
+    module_name, #0
+    int( round( os.path.getctime( #1
+        self.input_file_name
+    ) ) ),
+    "Imported from {}".format( self.input_file_name ), #2
+    "svg2mod", #3
+    module_name, #4
+    reference_y, #5
+    side, #6
+    self.module_value, #7
+    value_y, #8
+)
+            )
+
+        else:
+
+            f.write( """$MODULE {0}
 Po 0 0 0 {4} 00000000 00000000 ~~
 Li {0}
 T0 0 {1} 600 600 0 120 N I 21 "{0}"
 T1 0 {3} 600 600 0 120 N I 21 "{2}"
 """.format(
     module_name,
-    ( min_point.y + self.translation.y ) * scale_factor - 1200,
+    int( round( reference_y ) ),
     self.module_value,
-    ( max_point.y + self.translation.y ) * scale_factor + 1400,
+    int( round( value_y ) ),
     15, # Seems necessary
 )
-        )
+            )
 
         for name, group in self.layers.iteritems():
 
             if group is None: continue
 
-            layer = self.layer_map[ name ][ 0 ]
-            if not front:
-                layer = self.layer_map[ name ][ 1 ]
+            if pretty:
+
+                if front: layer = "F."
+                else: layer = "B."
+                layer += self.layer_map[ name ][ 2 ]
+
+            else:
+                layer = self.layer_map[ name ][ 0 ]
+                if not front:
+                    layer = self.layer_map[ name ][ 1 ]
 
             #print( "  Writing layer: {}".format( name ) )
-            self._write_items( f, group.items, scale_factor, precision, not front, layer )
+            self._write_items(
+                f, pretty, group.items, scale_factor, precision, not front, layer
+            )
 
-        f.write( "$EndMODULE {0}\n".format( module_name ) )
+        if pretty:
+            f.write( "\n)" )
+        else:
+            f.write( "$EndMODULE {0}\n".format( module_name ) )
 
 
     #------------------------------------------------------------------------
 
-    def _write_polygon_filled( self, f, segments, scale_factor, flip, layer ):
+    def _write_polygon_filled(
+        self,
+        f,
+        pretty,
+        segments,
+        scale_factor,
+        flip,
+        layer,
+    ):
 
         print( "    Writing filled polygon with {} segments".format( len( segments ) ) )
 
@@ -263,7 +351,7 @@ T1 0 {3} 600 600 0 120 N I 21 "{2}"
         total_points = 0
         for points in segments:
 
-            points = self._collapse_points( points, scale_factor, flip )
+            points = self._collapse_points( points, pretty, scale_factor, flip )
             collapsed_segments.append( points )
 
             num_points = len( points )
@@ -277,9 +365,12 @@ T1 0 {3} 600 600 0 120 N I 21 "{2}"
         if len( collapsed_segments ) > 1:
             total_points += 1
 
-        f.write( "DP 0 0 0 0 {} 1 {}\n".format(
-            total_points, layer
-        ) )
+        if pretty:
+            f.write( "\n  (fp_poly (pts \n" )
+        else:
+            f.write( "DP 0 0 0 0 {} 1 {}\n".format(
+                total_points, layer
+            ) )
 
         for points in collapsed_segments:
 
@@ -299,38 +390,75 @@ T1 0 {3} 600 600 0 120 N I 21 "{2}"
 
                 #print( "        {}, {}".format( point.x, point.y ) )
 
-                f.write( "Dl {} {}\n".format(
-                    int( point.x ), int( point.y )
-                ) )
+                if pretty:
+                    point_str = "    (xy {} {})\n"
 
-        if len( collapsed_segments ) > 1:
-            f.write( "Dl {} {}\n".format(
-                int( collapsed_segments[ 0 ][ 0 ].x ), int( collapsed_segments[ 0 ][ 0 ].y )
-            ) )
+                else:
+                    point_str = "Dl {:d} {:d}\n"
+
+                f.write( point_str.format( point.x, point.y ) )
 
             #f.write( "Segment end\n" )
+
+        if len( collapsed_segments ) > 1:
+
+            if pretty:
+                f.write( "    (xy {} {})\n".format(
+                    collapsed_segments[ 0 ][ 0 ].x,
+                    collapsed_segments[ 0 ][ 0 ].y,
+                ) )
+
+            else:
+                f.write( "Dl {} {}\n".format(
+                    int( round( collapsed_segments[ 0 ][ 0 ].x ) ),
+                    int( round( collapsed_segments[ 0 ][ 0 ].y ) ),
+                ) )
+
+        if pretty:
+            f.write( "  ) )" )
 
 
     #------------------------------------------------------------------------
 
-    def _write_polygon_outline( self, f, segments, scale_factor, flip, layer ):
-
+    def _write_polygon_outline(
+        self,
+        f,
+        pretty,
+        segments,
+        scale_factor,
+        flip,
+        layer,
+    ):
         for points in segments:
 
             #f.write( "Outline begin\n" )
 
-            points = self._collapse_points( points, scale_factor, flip )
+            points = self._collapse_points( points, pretty, scale_factor, flip )
 
             prior_point = None
             for point in points:
 
                 if prior_point is not None:
 
-                    f.write( "DS {} {} {} {} 1 {}\n".format(
-                        int( prior_point.x ), int( prior_point.y ),
-                        int( point.x ), int( point.y ),
-                        layer
-                    ) )
+                    if pretty:
+#(fp_line (start 3.74904 8.7503) (end -3.74904 8.7503) (layer F.SilkS) (width 0.381))
+                        f.write(
+                            "\n  (fp_line (start {} {}) (end {} {}) (layer {}) (width {}))".format(
+                                prior_point.x, prior_point.y,
+                                point.x, point.y,
+                                layer,
+                                0.381,
+                            )
+                        )
+
+                    else:
+                        f.write( "DS {} {} {} {} 1 {}\n".format(
+                            int( round( prior_point.x ) ),
+                            int( round( prior_point.y ) ),
+                            int( round( point.x ) ),
+                            int( round( point.y ) ),
+                            layer
+                        ) )
 
                 prior_point = point
 
@@ -378,35 +506,53 @@ T1 0 {3} 600 600 0 120 N I 21 "{2}"
         output_file_name,
         scale_factor = 1.0,
         precision = 20,
-        include_reverse = True
+        include_reverse = True,
+        pretty = True
     ):
         # Inkscape uses 90 DPI, PCBNew uses "decimil" (10K DPI):
-        scale_factor *= 10000.0 / 90.0
+        if pretty:
+            scale_factor *= 25.4 / 90.0
+        else:
+            scale_factor *= 10000.0 / 90.0
 
+        print( "Wriing module file: {}".format( output_file_name ) )
         f = open( output_file_name, 'w' )
-        f.write( """PCBNEW-LibModule-V1  {0}
+
+        if not pretty:
+
+            if include_reverse:
+                modules_list = "{0}-Front\n{0}-Back".format( self.module_name )
+            else:
+                modules_list = "{0}".format( self.module_name )
+
+            f.write( """PCBNEW-LibModule-V1  {0}
 $INDEX
-{1}-Front
-{1}-Back
+{1}
 $EndINDEX
 #
 # {2}
 #
 """.format(
     datetime.datetime.now().strftime( "%a %d %b %Y %I:%M:%S %p %Z" ),
-    self.module_name,
+    modules_list,
     self.input_file_name,
 )
-        )
+            )
 
         print( "Writing front module..." )
-        self._write_module( f, scale_factor, precision, front = True )
+        self._write_module(
+            f, pretty, scale_factor, precision, include_reverse, front = True
+        )
 
         if include_reverse:
             print( "Writing back module..." )
-            self._write_module( f, scale_factor, precision, front = False )
+            self._write_module(
+                f, pretty, scale_factor, precision, include_reverse, front = False
+            )
 
-        f.write( "$EndLIBRARY" )
+        if not pretty:
+            f.write( "$EndLIBRARY" )
+
         f.close()
 
 
@@ -481,6 +627,14 @@ def get_arguments():
         const = True,
         help = "omit output of back module",
         default = False,
+    )
+
+    parser.add_argument(
+        '--format',
+        dest = 'format',
+        choices = [ 'legacy', 'pretty' ],
+        help = "output module file format",
+        default = 'pretty',
     )
 
 
