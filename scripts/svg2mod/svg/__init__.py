@@ -1,1 +1,0 @@
-from .svg import *

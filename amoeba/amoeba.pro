@@ -1,4 +1,4 @@
-update=Tue 15 Sep 2015 06:44:39 PM EDT
+update=Sun 04 Oct 2015 11:15:20 PM EDT
 version=1
 last_client=pcbnew
 [general]
@@ -151,5 +151,3 @@ LibName57=TQFP44
 LibName58=usb_ports
 LibName59=mtl
 LibName60=gh32
-LibName61=dt
-LibName62=dt-rev
