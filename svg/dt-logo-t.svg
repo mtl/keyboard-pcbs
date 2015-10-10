@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="10160"
+   inkscape:export-xdpi="10160"
+   inkscape:export-filename="/home/mike/git/keyboard-pcbs/amoeba/dt.copper.png"
+   sodipodi:docname="dt-logo-t.svg"
+   inkscape:version="0.48.4 r9939"
+   version="1.1"
+   id="svg3350"
+   height="9.9885826"
+   width="7.5011811">
+  <defs
+     id="defs3352" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="32"
+     inkscape:cx="2.5941931"
+     inkscape:cy="1.921489"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1074"
+     inkscape:window-height="747"
+     inkscape:window-x="714"
+     inkscape:window-y="168"
+     inkscape:window-maximized="0"
+     inkscape:snap-bbox="true"
+     inkscape:snap-page="true"
+     inkscape:snap-global="true"
+     inkscape:object-paths="true" />
+  <metadata
+     id="metadata3355">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer24"
+     inkscape:label="Pretty"
+     transform="translate(-1.9754585,-0.7704277)">
+    <g
+       inkscape:groupmode="layer"
+       id="layer25"
+       inkscape:label="Fab" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer26"
+       inkscape:label="CrtYd" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer17"
+     inkscape:label="Legacy"
+     transform="translate(-1.9754585,-0.7704277)">
+    <g
+       inkscape:groupmode="layer"
+       id="layer23"
+       inkscape:label="Edge.Cuts" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer18"
+       inkscape:label="User">
+      <g
+         inkscape:groupmode="layer"
+         id="layer19"
+         inkscape:label="Eco2.User" />
+      <g
+         inkscape:groupmode="layer"
+         id="layer20"
+         inkscape:label="Eco1.User" />
+      <g
+         inkscape:groupmode="layer"
+         id="layer21"
+         inkscape:label="Cmts.User" />
+      <g
+         inkscape:groupmode="layer"
+         id="layer22"
+         inkscape:label="Dwgs.User" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Mask"
+     style="display:inline"
+     transform="translate(-1.9754585,-0.7704277)">
+    <path
+       style="fill:#330055;fill-opacity:1;stroke:none"
+       d="m 4.4813448,0.7704277 2.4894085,0 c 1.388261,0 2.5058863,1.1176253 2.5058863,2.5058863 l 0,4.97681 c 0,1.388261 -1.1176253,2.505886 -2.5058863,2.505886 l -2.4894085,0 c -1.388261,0 -2.5058863,-1.117625 -2.5058863,-2.505886 l 0,-4.97681 c 0,-1.388261 1.1176253,-2.5058863 2.5058863,-2.5058863 z"
+       id="rect3932" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="SilkS"
+     style="display:inline"
+     transform="translate(-1.9754585,-0.7704277)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer10"
+     inkscape:label="Paste"
+     transform="translate(-1.9754585,-0.7704277)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Adhes"
+     style="display:inline"
+     transform="translate(-1.9754585,-0.7704277)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Cu"
+     transform="translate(-0.2038008,0.6859529)"
+     style="display:inline">
+    <path
+       style="fill:#b18883;fill-opacity:1;stroke:none"
+       d="m 2.2342923,1.0851397 c -0.1426097,0 -0.2584639,0.1540117 -0.2584639,0.344158 l 0,0.1865916 c 0,0.1901464 0.115854,0.3441581 0.2584639,0.3441581 l 1.297849,0 0,5.2452998 c 0,0.1806389 0.145551,0.3261899 0.3261899,0.3261899 l 0.2335851,0 c 0.180639,0 0.32619,-0.145551 0.32619,-0.3261899 l 0,-5.2452998 1.256384,0 c 0.1426099,0 0.2584641,-0.1540117 0.2584641,-0.3441581 l 0,-0.1865916 c 0,-0.1901463 -0.115854,-0.344158 -0.2584641,-0.344158 l -3.440198,0 z"
+       id="rect4007-1"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
