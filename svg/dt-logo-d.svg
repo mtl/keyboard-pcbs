@@ -13,11 +13,11 @@
    inkscape:export-xdpi="10160"
    inkscape:export-filename="/home/mike/git/keyboard-pcbs/amoeba/dt.copper.png"
    sodipodi:docname="dt-logo-d.svg"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.48.5 r10040"
    version="1.1"
    id="svg3350"
    height="12.401575"
-   width="9.4393702">
+   width="8.8476381">
   <defs
      id="defs3352" />
   <sodipodi:namedview
@@ -28,24 +28,25 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="32"
-     inkscape:cx="5.2019789"
+     inkscape:cx="-1.4678781"
      inkscape:cy="5.421859"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1477"
-     inkscape:window-height="930"
+     inkscape:window-width="1364"
+     inkscape:window-height="747"
      inkscape:window-x="0"
      inkscape:window-y="19"
      inkscape:window-maximized="0"
      inkscape:snap-bbox="true"
      inkscape:snap-page="true"
      inkscape:snap-global="true"
-     inkscape:object-paths="true" />
+     inkscape:object-paths="true"
+     showborder="false" />
   <metadata
      id="metadata3355">
     <rdf:RDF>
@@ -54,7 +55,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -62,7 +63,7 @@
      inkscape:groupmode="layer"
      id="layer24"
      inkscape:label="Pretty"
-     transform="translate(0.31169009,1.8921947)">
+     transform="translate(-0.28004193,1.8921947)">
     <g
        inkscape:groupmode="layer"
        id="layer25"
@@ -76,7 +77,7 @@
      inkscape:groupmode="layer"
      id="layer17"
      inkscape:label="Legacy"
-     transform="translate(0.31169009,1.8921947)">
+     transform="translate(-0.28004193,1.8921947)">
     <g
        inkscape:groupmode="layer"
        id="layer23"
@@ -108,50 +109,52 @@
      id="layer1"
      inkscape:label="Mask"
      style="display:inline"
-     transform="translate(0.31169009,1.8921947)">
+     transform="translate(-0.28004193,1.8921947)">
     <path
-       style="fill:#330055;fill-opacity:1;fill-rule:evenodd;stroke:none"
-       d="m 1.8364277,-1.8921947 5.1431346,0 c 1.1900572,0 2.1481178,0.95806048 2.1481178,2.14811773 l 0,8.10533957 c 0,1.1900572 -0.9580606,2.1481174 -2.1481178,2.1481174 l -5.1431346,0 c -1.19005726,0 -2.14811779,-0.9580602 -2.14811779,-2.1481174 l 0,-8.10533957 c 0,-1.19005725 0.95806053,-2.14811773 2.14811779,-2.14811773 z"
-       id="rect3856" />
+       style="fill:#f6e9ff;fill-opacity:1;stroke:none"
+       d="m 1.9059246,-1.006368 5.0076835,0 c 0.9007389,0 1.6258826,0.7212995 1.6258826,1.61726351 l 0,8.28122129 c 0,0.895964 -0.7251437,1.6172632 -1.6258826,1.6172632 l -5.0076835,0 c -0.900739,0 -1.62588267,-0.7212992 -1.62588267,-1.6172632 l 0,-8.28122129 c 0,-0.89596401 0.72514367,-1.61726351 1.62588267,-1.61726351 z"
+       id="rect5332"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="SilkS"
      style="display:inline"
-     transform="translate(0.31169009,1.8921947)" />
+     transform="translate(-0.28004193,1.8921947)" />
   <g
      inkscape:groupmode="layer"
      id="layer10"
      inkscape:label="Paste"
-     transform="translate(0.31169009,1.8921947)" />
+     transform="translate(-0.28004193,1.8921947)" />
   <g
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="Adhes"
      style="display:inline"
-     transform="translate(0.31169009,1.8921947)" />
+     transform="translate(-0.28004193,1.8921947)" />
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Cu"
-     transform="translate(2.0833478,3.3485753)"
+     transform="translate(1.4916158,3.3485753)"
      style="display:inline">
     <g
        id="g3858"
-       transform="matrix(1.2165706,0,0,1.2165706,0.06767885,-1.5769253)">
+       transform="matrix(1.3382276,0,0,1.3382276,-0.1874156,-1.5769257)"
+       style="fill:#ffdb7c;fill-opacity:1">
       <path
          sodipodi:nodetypes="ccssssssc"
          inkscape:connector-curvature="0"
          id="rect4005-0"
          d="m 1.282599,1.6854255 0,3.90993 0.8293619,0 c 0.04103,0 0.1246753,-0.00848 0.1420141,-0.011361 0.3963857,-0.065836 0.6964367,-0.4112004 0.6964367,-0.8270898 l 0,-2.2324605 c 0,-0.4158631 -0.3061795,-0.7304025 -0.6964367,-0.8259535 -0.034189,-0.00837 -0.1042411,-0.013065 -0.1420141,-0.013065 z"
-         style="fill:#b18883;fill-opacity:1;stroke:none" />
+         style="fill:#ffdb7c;fill-opacity:1;stroke:none" />
       <path
          sodipodi:nodetypes="ssssssssscccsssscccc"
          inkscape:connector-curvature="0"
          id="rect4005-0-1"
          d="m 0.1533035,2.9578979e-6 c -0.2578902,0 -0.465806,0.1568236021021 -0.465806,0.3521948021021 l 0,6.57581734 c 0,0.1953713 0.2079158,0.3533309 0.465806,0.3533309 l 3.9161787,0 c 0.2578899,0 0.465806,-0.1579596 0.465806,-0.3533309 l 0,-6.57581734 C 4.5352882,0.15682656 4.3273721,2.9578979e-6 4.0694822,2.9578979e-6 z M 0.58048168,1.0054623 l 1.35879022,0 0.3453781,0 0.019314,0 c 0.742411,0 1.3394763,0.5970655 1.3394763,1.3394762 l 0,2.5903358 c 0,0.7424106 -0.5970653,1.3406124 -1.3394763,1.3406124 l -0.019314,0 -0.3453781,0 -1.35879022,0 z"
-         style="fill:#b18883;fill-opacity:1;stroke:none;display:inline" />
+         style="fill:#ffdb7c;fill-opacity:1;stroke:none;display:inline" />
     </g>
   </g>
 </svg>

@@ -13,7 +13,7 @@
    height="6.3637962"
    id="svg4904"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.48.5 r10040"
    sodipodi:docname="labels-melvang-moz.svg">
   <defs
      id="defs4906">
@@ -65,16 +65,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="16"
-     inkscape:cx="16.024002"
-     inkscape:cy="0.42554484"
+     inkscape:zoom="22.627417"
+     inkscape:cx="15.750564"
+     inkscape:cy="2.9255448"
      inkscape:document-units="px"
-     inkscape:current-layer="svg4904"
+     inkscape:current-layer="layer37"
      showgrid="false"
      inkscape:window-width="1364"
      inkscape:window-height="747"
-     inkscape:window-x="253"
-     inkscape:window-y="21"
+     inkscape:window-x="0"
+     inkscape:window-y="19"
      inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -105,7 +105,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -291,7 +291,7 @@
     <path
        inkscape:connector-curvature="0"
        style="font-size:2.53816223px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:MagistralC;-inkscape-font-specification:MagistralC"
-       d="m 13.823168,-5.7143586 0,-0.3948817 -0.382346,0 0,0.3948817 0.382346,0"
+       d="m 13.978162,-5.7143586 0,-0.3948817 -0.382346,0 0,0.3948817 0.382346,0"
        id="path5607-3-4" />
   </g>
   <g
