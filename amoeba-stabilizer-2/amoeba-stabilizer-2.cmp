@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-may-18)-stable date = Wed 16 Sep 2015 10:56:13 PM EDT
+Cmp-Mod V01 Created by PcbNew date = Sat 31 Oct 2015 04:12:51 PM EDT
 
 BeginCmp
 TimeStamp = /55D92FDB/55DBAE5B/55DBAE93;
@@ -81,7 +81,7 @@ BeginCmp
 TimeStamp = /55D92FDB/55DBAE5B/55DBAE7F;
 Reference = S0;
 ValeurCmp = MX1A;
-IdModule  = ALPS_CHERRY_PCB_100H;
+IdModule  = ALPS_CHERRY_ZEAL_PCB_100H;
 EndCmp
 
 BeginCmp

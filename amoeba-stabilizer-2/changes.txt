@@ -1,0 +1,10 @@
+v1.3:
+    Bring version number up to date with amoeba 1u
+	Cosmetic changes
+v1.2.1:
+	Add 2nd top SC pad
+	Fix disconnected SC pad
+	Square pads for LED matrix
+v1.2.0: Support ALPS
+v1.1.0: Support SMD diode and resistor
+v1.0.0: Initial version

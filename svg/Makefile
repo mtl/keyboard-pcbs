@@ -1,5 +1,6 @@
 
 default_precision=0.2
+default_factor=1.0
 svg2mod=../../svg2mod/svg2mod.py
 module=../modules/mtl.mod
 
@@ -17,10 +18,12 @@ $(module): \
 	amoeba-round.svg \
 	amoeba-vertical.svg \
 	dt-logo.svg \
+	dt-logo-big.svg \
 	dt-logo-d.svg \
 	dt-logo-t.svg \
 	labels-melvang-moz.svg \
-	mtl-braille.svg
+	mtl-braille.svg \
+	osh-logo.svg
 	$(foreach svg,$?,$(call make_mod,$(svg)))
 
 # If there's an explicit phony target, recursively call make on that target.
@@ -28,19 +31,22 @@ $(module): \
 make_mod=$(if \
 	$(filter $(basename $(1)),$(explicit_targets)), \
 	$(MAKE) -f $(THIS_FILE) $(basename $(1));, \
-	$(call do_svg2mod,$(1),$(default_precision)) \
+	$(call do_svg2mod,$(1),$(default_factor),$(default_precision)) \
 )
 
 # Convert an SVG using the given precision:
 do_svg2mod=$(svg2mod) $(svg2mod_opts) \
-	-i $(1) --module-name $(basename $(1)) --precision $(2);
-
+	-i $(1) --module-name $(basename $(1)) \
+	--factor $(2) --precision $(3);
 
 .SECONDEXPANSION:
 
 # Custom precision for this SVG to make KiCad 3D renderer happy:
 amoeba-round: $$@.svg
-	$(call do_svg2mod,$<,0.075)
+	$(call do_svg2mod,$<,$(default_factor),0.075)
 
+# Same as dt-logo but with a higher scale factor:
+dt-logo-big: $$@.svg
+	$(call do_svg2mod,$<,1.8,$(default_precision))
 
 # vi: set sts=4 sw=4 ts=4:

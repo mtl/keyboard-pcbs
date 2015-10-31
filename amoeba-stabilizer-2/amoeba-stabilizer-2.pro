@@ -1,6 +1,6 @@
-update=Wed 16 Sep 2015 09:03:28 PM EDT
+update=Sat 31 Oct 2015 06:08:10 PM EDT
 version=1
-last_client=kicad
+last_client=pcbnew
 [cvpcb]
 version=1
 NetIExt=net
@@ -68,14 +68,16 @@ LibName50=TeensyShield-cache
 LibName51=tutorial-cache
 LibName52=usb_ports
 LibName53=mtl
+[general]
+version=1
 [pcbnew]
 version=1
 LastNetListRead=amoeba.net
 UseCmpFile=1
-PadDrill="    1.498600"
-PadDrillOvalY="    1.498600"
-PadSizeH="    2.286000"
-PadSizeV="    2.867377"
+PadDrill="    0.900000"
+PadDrillOvalY="    0.900000"
+PadSizeH="    1.500000"
+PadSizeV="    1.500000"
 PcbTextSizeV="    1.500000"
 PcbTextSizeH="    1.500000"
 PcbTextThickness="    0.300000"
@@ -151,5 +153,3 @@ LibName59=mtl
 LibName60=gh32
 LibName61=dt
 LibName62=dt-rev
-[general]
-version=1
