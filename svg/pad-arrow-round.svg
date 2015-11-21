@@ -16,8 +16,8 @@
    inkscape:version="0.48.5 r10040"
    version="1.1"
    id="svg3350"
-   height="7.125"
-   width="9.21875">
+   height="5.3125"
+   width="7.40625">
   <defs
      id="defs3352" />
   <sodipodi:namedview
@@ -27,11 +27,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="16"
-     inkscape:cx="10.140925"
-     inkscape:cy="-3.8507398"
+     inkscape:zoom="45.254834"
+     inkscape:cx="2.4233755"
+     inkscape:cy="1.4952212"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -64,7 +64,7 @@
      inkscape:groupmode="layer"
      id="layer24"
      inkscape:label="Pretty"
-     transform="translate(9.3978684,14.101915)">
+     transform="translate(8.4907654,13.193454)">
     <g
        inkscape:groupmode="layer"
        id="layer25"
@@ -78,7 +78,7 @@
      inkscape:groupmode="layer"
      id="layer17"
      inkscape:label="Legacy"
-     transform="translate(9.3978684,14.101915)">
+     transform="translate(8.4907654,13.193454)">
     <g
        inkscape:groupmode="layer"
        id="layer23"
@@ -110,35 +110,36 @@
      id="layer1"
      inkscape:label="Mask"
      style="display:inline"
-     transform="translate(9.3978684,14.101915)">
+     transform="translate(8.4907654,13.193454)">
     <path
-       inkscape:connector-curvature="0"
        style="fill:#f6e9ff;fill-opacity:1;stroke:none;display:inline"
-       d="m -5.8353684,-14.101915 c -1.964742,0 -3.5625,1.597757 -3.5625,3.5625 0,1.9647406 1.597758,3.5624998 3.5625,3.5624998 0.6594708,0 1.2830138,-0.1872783 1.8125,-0.5 l 0.1875,-0.125 3.6562504,-2.4374998 0,-0.96875 -3.6562504,-2.46875 c -0.029787,-0.02012 -0.06333,-0.04326 -0.09375,-0.0625 -0.5494235,-0.347423 -1.2081254,-0.5625 -1.90625,-0.5625 z"
-       id="path4173" />
+       d="m -5.8345156,-13.193454 c -1.467686,0 -2.6562498,1.188565 -2.6562498,2.65625 0,1.467686 1.1885638,2.65625 2.6562498,2.65625 0.4939327,0 0.947522,-0.14025 1.34375,-0.375 l 0.1875,-0.09375 3.21875,-2.1875 -3.21875,-2.171875 c -0.09098,-0.06136 -0.114777,-0.06392 -0.1875,-0.109375 -0.39837,-0.23831 -0.8457852,-0.375 -1.34375,-0.375 z"
+       id="path4152-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ssscccccs" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="SilkS"
      style="display:inline"
-     transform="translate(9.3978684,14.101915)" />
+     transform="translate(8.4907654,13.193454)" />
   <g
      inkscape:groupmode="layer"
      id="layer10"
      inkscape:label="Paste"
-     transform="translate(9.3978684,14.101915)" />
+     transform="translate(8.4907654,13.193454)" />
   <g
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="Adhes"
      style="display:inline"
-     transform="translate(9.3978684,14.101915)" />
+     transform="translate(8.4907654,13.193454)" />
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Cu"
-     transform="translate(11.169526,15.558296)"
+     transform="translate(10.262423,14.649835)"
      style="display:inline">
     <path
        style="fill:#ffdb7c;fill-opacity:1;stroke:none"

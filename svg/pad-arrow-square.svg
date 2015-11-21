@@ -16,8 +16,8 @@
    inkscape:version="0.48.5 r10040"
    version="1.1"
    id="svg3350"
-   height="7.125"
-   width="9.28125">
+   height="5.3125"
+   width="7.46875">
   <defs
      id="defs3352" />
   <sodipodi:namedview
@@ -28,8 +28,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="32"
-     inkscape:cx="12.332777"
-     inkscape:cy="2.2742602"
+     inkscape:cx="-0.40159782"
+     inkscape:cy="1.3680102"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -65,7 +65,7 @@
      inkscape:groupmode="layer"
      id="layer24"
      inkscape:label="Pretty"
-     transform="translate(11.554118,-4.835585)">
+     transform="translate(10.647868,-5.741835)">
     <g
        inkscape:groupmode="layer"
        id="layer25"
@@ -79,7 +79,7 @@
      inkscape:groupmode="layer"
      id="layer17"
      inkscape:label="Legacy"
-     transform="translate(11.554118,-4.835585)">
+     transform="translate(10.647868,-5.741835)">
     <g
        inkscape:groupmode="layer"
        id="layer23"
@@ -111,40 +111,41 @@
      id="layer1"
      inkscape:label="Mask"
      style="display:inline"
-     transform="translate(11.554118,-4.835585)">
+     transform="translate(10.647868,-5.741835)">
     <path
        inkscape:connector-curvature="0"
        style="fill:#f6e9ff;fill-opacity:1;stroke:none;display:inline"
-       d="m -11.554118,4.835585 0,7.125 6.6249996,0 2.65625,-3.25 0,-0.625 -2.65625,-3.25 -6.6249996,0 z"
-       id="rect4317" />
+       d="m -10.647868,5.741835 0,5.3125 5.3125,0 1.09375,-1.3125 1.0625,-1.34375 -1.0625,-1.3125 -1.09375,-1.34375 -5.3125,0 z"
+       id="rect3139-9" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="SilkS"
      style="display:inline"
-     transform="translate(11.554118,-4.835585)" />
+     transform="translate(10.647868,-5.741835)" />
   <g
      inkscape:groupmode="layer"
      id="layer10"
      inkscape:label="Paste"
-     transform="translate(11.554118,-4.835585)" />
+     transform="translate(10.647868,-5.741835)" />
   <g
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="Adhes"
      style="display:inline"
-     transform="translate(11.554118,-4.835585)" />
+     transform="translate(10.647868,-5.741835)" />
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Cu"
-     transform="translate(13.325776,-3.379204)"
+     transform="translate(12.419526,-4.285454)"
      style="display:inline">
     <path
        style="fill:#ffdb7c;fill-opacity:1;stroke:none"
-       d="M 0.90625 0.90625 L 0.90625 6.21875 L 6.21875 6.21875 L 7.3125 4.90625 L 8.375 3.5625 L 7.3125 2.25 L 6.21875 0.90625 L 0.90625 0.90625 z "
+       d="m 0.90625,0.90625 0,5.3125 5.3125,0 L 7.3125,4.90625 8.375,3.5625 7.3125,2.25 6.21875,0.90625 l -5.3125,0 z"
        transform="translate(-13.325776,3.379204)"
-       id="rect3139" />
+       id="rect3139"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>
