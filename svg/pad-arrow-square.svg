@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="10160"
+   inkscape:export-xdpi="10160"
+   inkscape:export-filename="/home/mike/git/keyboard-pcbs/amoeba/dt.copper.png"
+   sodipodi:docname="pad-arrow-square.svg"
+   inkscape:version="0.48.5 r10040"
+   version="1.1"
+   id="svg3350"
+   height="7.125"
+   width="9.28125">
+  <defs
+     id="defs3352" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="32"
+     inkscape:cx="12.332777"
+     inkscape:cy="2.2742602"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1364"
+     inkscape:window-height="747"
+     inkscape:window-x="0"
+     inkscape:window-y="19"
+     inkscape:window-maximized="0"
+     inkscape:snap-bbox="true"
+     inkscape:snap-page="true"
+     inkscape:snap-global="true"
+     inkscape:object-paths="true"
+     showborder="false"
+     inkscape:snap-intersection-paths="true"
+     inkscape:object-nodes="true" />
+  <metadata
+     id="metadata3355">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer24"
+     inkscape:label="Pretty"
+     transform="translate(11.554118,-4.835585)">
+    <g
+       inkscape:groupmode="layer"
+       id="layer25"
+       inkscape:label="Fab" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer26"
+       inkscape:label="CrtYd" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer17"
+     inkscape:label="Legacy"
+     transform="translate(11.554118,-4.835585)">
+    <g
+       inkscape:groupmode="layer"
+       id="layer23"
+       inkscape:label="Edge.Cuts" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer18"
+       inkscape:label="User">
+      <g
+         inkscape:groupmode="layer"
+         id="layer19"
+         inkscape:label="Eco2.User" />
+      <g
+         inkscape:groupmode="layer"
+         id="layer20"
+         inkscape:label="Eco1.User" />
+      <g
+         inkscape:groupmode="layer"
+         id="layer21"
+         inkscape:label="Cmts.User" />
+      <g
+         inkscape:groupmode="layer"
+         id="layer22"
+         inkscape:label="Dwgs.User" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Mask"
+     style="display:inline"
+     transform="translate(11.554118,-4.835585)">
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#f6e9ff;fill-opacity:1;stroke:none;display:inline"
+       d="m -11.554118,4.835585 0,7.125 6.6249996,0 2.65625,-3.25 0,-0.625 -2.65625,-3.25 -6.6249996,0 z"
+       id="rect4317" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="SilkS"
+     style="display:inline"
+     transform="translate(11.554118,-4.835585)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer10"
+     inkscape:label="Paste"
+     transform="translate(11.554118,-4.835585)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Adhes"
+     style="display:inline"
+     transform="translate(11.554118,-4.835585)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Cu"
+     transform="translate(13.325776,-3.379204)"
+     style="display:inline">
+    <path
+       style="fill:#ffdb7c;fill-opacity:1;stroke:none"
+       d="M 0.90625 0.90625 L 0.90625 6.21875 L 6.21875 6.21875 L 7.3125 4.90625 L 8.375 3.5625 L 7.3125 2.25 L 6.21875 0.90625 L 0.90625 0.90625 z "
+       transform="translate(-13.325776,3.379204)"
+       id="rect3139" />
+  </g>
+</svg>

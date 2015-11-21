@@ -23,6 +23,8 @@ $(module): \
 	dt-logo-t.svg \
 	labels-melvang-moz.svg \
 	mtl-braille.svg \
+	pad-arrow-round.svg \
+	pad-arrow-square.svg \
 	osh-logo.svg
 	$(foreach svg,$?,$(call make_mod,$(svg)))
 
