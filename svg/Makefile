@@ -16,6 +16,7 @@ all: $(module)
 
 $(module): \
 	amoeba-round.svg \
+	amoeba-round-cu.svg \
 	amoeba-vertical.svg \
 	dt-logo.svg \
 	dt-logo-big.svg \
@@ -46,9 +47,11 @@ do_svg2mod=$(svg2mod) $(svg2mod_opts) \
 # Custom precision for this SVG to make KiCad 3D renderer happy:
 amoeba-round: $$@.svg
 	$(call do_svg2mod,$<,$(default_factor),0.075)
+amoeba-round-cu: $$@.svg
+	$(call do_svg2mod,$<,$(default_factor),0.075)
 
 # Same as dt-logo but with a higher scale factor:
-dt-logo-big: $$@.svg
-	$(call do_svg2mod,$<,1.8,$(default_precision))
+#dt-logo-big: $$@.svg
+#	$(call do_svg2mod,$<,1.8,$(default_precision))
 
 # vi: set sts=4 sw=4 ts=4:
