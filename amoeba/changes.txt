@@ -1,3 +1,4 @@
+v1.5: Aesthetic improvements
 v1.3: Improvements to trace layout
 v1.2.1:
 	Add 2nd top SC pad

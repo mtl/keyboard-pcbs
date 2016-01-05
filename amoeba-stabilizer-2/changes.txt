@@ -1,3 +1,4 @@
+v1.5: Aesthetic improvements
 v1.3:
     Bring version number up to date with amoeba 1u
 	Cosmetic changes
