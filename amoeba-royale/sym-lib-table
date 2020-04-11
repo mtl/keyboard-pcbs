@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name amoeba-royale-rescue)(type Legacy)(uri ${KIPRJMOD}/amoeba-royale-rescue.lib)(options "")(descr ""))
+)

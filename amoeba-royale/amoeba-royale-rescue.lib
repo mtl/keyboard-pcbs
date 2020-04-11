@@ -1,0 +1,38 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# DIODE-amoeba-rescue
+#
+DEF DIODE-amoeba-rescue D 0 40 N N 1 F N
+F0 "D" 0 100 40 H V C CNN
+F1 "DIODE-amoeba-rescue" 0 -100 40 H V C CNN
+F2 "" 0 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+$FPLIST
+ D?
+ S*
+$ENDFPLIST
+DRAW
+P 2 0 1 6 50 50 50 -50 N
+P 3 0 1 0 -50 50 50 0 -50 -50 F
+X A 1 -200 0 150 R 40 40 1 1 P
+X K 2 200 0 150 L 40 40 1 1 P
+ENDDRAW
+ENDDEF
+#
+# MX1A-amoeba-rescue
+#
+DEF MX1A-amoeba-rescue S 0 40 Y Y 1 F N
+F0 "S" -150 250 60 H V C CNN
+F1 "MX1A-amoeba-rescue" 0 100 60 H V C CNN
+F2 "" 0 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+DRAW
+P 2 0 1 0 -100 150 50 250 N
+P 3 0 1 0 -200 300 -200 150 -100 150 N
+X ~ 1 -200 400 100 D 50 50 1 1 P
+X ~ 2 200 150 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+#End Library
