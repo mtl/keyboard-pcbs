@@ -225,6 +225,40 @@ F 3 "~" H 5250 4400 50  0001 C CNN
 	1    5250 4400
 	0    -1   -1   0   
 $EndComp
+$Comp
+L Connector:Conn_01x01_Male J5
+U 1 1 5EC458E5
+P 4800 2200
+F 0 "J5" V 4862 2244 50  0000 L CNN
+F 1 "Conn_01x01_Male" V 4953 2244 50  0000 L CNN
+F 2 "amoeba-modules:Header_1x01_P1.27mm" H 4800 2200 50  0001 C CNN
+F 3 "~" H 4800 2200 50  0001 C CNN
+	1    4800 2200
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J6
+U 1 1 5EC464E7
+P 4750 4400
+F 0 "J6" V 4904 4312 50  0000 R CNN
+F 1 "Conn_01x01_Male" V 4813 4312 50  0000 R CNN
+F 2 "amoeba-modules:Header_1x01_P1.27mm" H 4750 4400 50  0001 C CNN
+F 3 "~" H 4750 4400 50  0001 C CNN
+	1    4750 4400
+	0    -1   -1   0   
+$EndComp
+Entry Wire Line
+	4750 4050 4850 3950
+Entry Wire Line
+	4700 2600 4800 2500
+Wire Wire Line
+	4800 2500 4800 2400
+Wire Wire Line
+	4750 4200 4750 4050
+Text Label 4800 2500 1    50   ~ 0
+C
+Text Label 4750 4200 1    50   ~ 0
+C
 Wire Bus Line
 	6050 2600 6050 3950
 Wire Bus Line

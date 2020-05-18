@@ -1,6 +1,23 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
+# Connector_Conn_01x01_Male
+#
+DEF Connector_Conn_01x01_Male J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "Connector_Conn_01x01_Male" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*
+$ENDFPLIST
+DRAW
+S 34 5 0 -5 1 1 6 F
+P 2 1 1 6 50 0 34 0 N
+X Pin_1 1 200 0 150 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Connector_Conn_01x04_Male
 #
 DEF Connector_Conn_01x04_Male J 0 40 Y N 1 F N
@@ -56,22 +73,25 @@ X Pin_5 5 200 -200 150 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# amoeba-royale-rescue_DIODE-amoeba-rescue
+# Device_D
 #
-DEF amoeba-royale-rescue_DIODE-amoeba-rescue D 0 40 N N 1 F N
-F0 "D" 0 100 40 H V C CNN
-F1 "amoeba-royale-rescue_DIODE-amoeba-rescue" 0 -100 40 H V C CNN
-F2 "" 0 0 60 H V C CNN
-F3 "" 0 0 60 H V C CNN
+DEF Device_D D 0 40 N N 1 F N
+F0 "D" 0 100 50 H V C CNN
+F1 "Device_D" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
 $FPLIST
- D?
- S*
+ TO-???*
+ *_Diode_*
+ *SingleDiode*
+ D_*
 $ENDFPLIST
 DRAW
-P 2 0 1 6 50 50 50 -50 N
-P 3 0 1 0 -50 50 50 0 -50 -50 F
-X A 1 -200 0 150 R 40 40 1 1 P
-X K 2 200 0 150 L 40 40 1 1 P
+P 2 0 1 8 -50 50 -50 -50 N
+P 2 0 1 0 50 0 -50 0 N
+P 4 0 1 8 50 50 50 -50 -50 0 50 50 N
+X K 1 -150 0 100 R 50 50 1 1 P
+X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
