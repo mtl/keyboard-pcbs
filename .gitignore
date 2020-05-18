@@ -3,6 +3,7 @@
 *.bak
 *.kicad_pcb-bak
 *.png
+*cache
 amoeba/amoeba.zip
 amoeba-stabilizer-2/amoeba-stabilizer-2.zip
 amoeba-spc/amoeba-spc.zip

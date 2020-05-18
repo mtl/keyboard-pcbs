@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name amoeba-libraries)(type KiCad)(uri ${KIPRJMOD}/../libraries)(options "")(descr "")(disabled))
+  (lib (name amoeba-modules)(type KiCad)(uri ${KIPRJMOD}/../modules.pretty)(options "")(descr ""))
+)
