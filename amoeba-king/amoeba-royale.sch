@@ -67,7 +67,7 @@ U 1 1 5ED00D97
 P 6500 3200
 F 0 "J2" H 6472 3224 50  0000 R CNN
 F 1 "Conn_01x05_Male" H 6472 3133 50  0000 R CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x05_P1.27mm_Vertical" H 6500 3200 50  0001 C CNN
+F 2 "amoeba-modules:Header_1x05_P1.27mm" H 6500 3200 50  0001 C CNN
 F 3 "~" H 6500 3200 50  0001 C CNN
 	1    6500 3200
 	-1   0    0    -1  
@@ -78,7 +78,7 @@ U 1 1 5ED02613
 P 4200 3250
 F 0 "J4" H 4150 3600 50  0000 C CNN
 F 1 "Conn_01x05_Male" H 4200 2950 50  0000 C CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x05_P1.27mm_Vertical" H 4200 3250 50  0001 C CNN
+F 2 "amoeba-modules:Header_1x05_P1.27mm" H 4200 3250 50  0001 C CNN
 F 3 "~" H 4200 3250 50  0001 C CNN
 	1    4200 3250
 	1    0    0    -1  
@@ -89,7 +89,7 @@ U 1 1 5ED03164
 P 5400 2200
 F 0 "J1" V 5462 1912 50  0000 R CNN
 F 1 "Conn_01x05_Male" V 5553 1912 50  0000 R CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x05_P1.27mm_Vertical" H 5400 2200 50  0001 C CNN
+F 2 "amoeba-modules:Header_1x05_P1.27mm" H 5400 2200 50  0001 C CNN
 F 3 "~" H 5400 2200 50  0001 C CNN
 	1    5400 2200
 	0    -1   1    0   
@@ -214,6 +214,17 @@ Text Label 4450 3350 0    50   ~ 0
 GND
 Text Label 4450 3150 0    50   ~ 0
 VDD
+$Comp
+L Connector:Conn_01x04_Male J3
+U 1 1 5EC2A986
+P 5250 4400
+F 0 "J3" V 5404 4112 50  0000 R CNN
+F 1 "Conn_01x04_Male" V 5313 4112 50  0000 R CNN
+F 2 "amoeba-modules:Header_1x04_P1.27mm" H 5250 4400 50  0001 C CNN
+F 3 "~" H 5250 4400 50  0001 C CNN
+	1    5250 4400
+	0    -1   -1   0   
+$EndComp
 Wire Bus Line
 	6050 2600 6050 3950
 Wire Bus Line
@@ -222,15 +233,4 @@ Wire Bus Line
 	4650 3950 6050 3950
 Wire Bus Line
 	4650 2600 4650 3950
-$Comp
-L Connector:Conn_01x05_Male J3
-U 1 1 5EC34669
-P 5350 4400
-F 0 "J3" V 5504 4112 50  0000 R CNN
-F 1 "Conn_01x05_Male" V 5413 4112 50  0000 R CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x05_P1.27mm_Vertical" H 5350 4400 50  0001 C CNN
-F 3 "~" H 5350 4400 50  0001 C CNN
-	1    5350 4400
-	0    -1   -1   0   
-$EndComp
 $EndSCHEMATC

@@ -1,9 +1,11 @@
 *~
 .*.sw?
 *.bak
+*.bck
 *.kicad_pcb-bak
 *.png
 *cache
+_autosave*
 amoeba/amoeba.zip
 amoeba-stabilizer-2/amoeba-stabilizer-2.zip
 amoeba-spc/amoeba-spc.zip
