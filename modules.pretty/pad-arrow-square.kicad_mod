@@ -1,0 +1,12 @@
+(module pad-arrow-square (layer F.Cu) (tedit 0)
+  (fp_text reference pad-arrow-square (at 0 -3.797653) (layer F.SilkS) hide
+    (effects (font (size 1.524 1.524) (thickness 0.3048)))
+  )
+  (fp_text value G*** (at 0 3.797653) (layer F.SilkS) hide
+    (effects (font (size 1.524 1.524) (thickness 0.3048)))
+  )
+  (fp_poly (pts (xy -1.053924 0.749653) (xy -1.053924 -0.749653) (xy 0.445382 -0.749653) (xy 0.754063 -0.379236)
+    (xy 1.053924 0) (xy 0.754063 0.370417) (xy 0.445382 0.749653) (xy -1.053924 0.749653)) (layer F.Mask) (width 0.00254))
+  (fp_poly (pts (xy -1.053924 0.749653) (xy -1.053924 -0.749653) (xy 0.445382 -0.749653) (xy 0.754063 -0.379236)
+    (xy 1.053924 0) (xy 0.754063 0.370417) (xy 0.445382 0.749653) (xy -1.053924 0.749653)) (layer F.Cu) (width 0.00254))
+)

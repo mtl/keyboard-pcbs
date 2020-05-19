@@ -1,0 +1,10 @@
+Reference, Value, Footprint, Datasheet
+"J2","Conn_01x05_Male","amoeba-modules:Header_1x05_P1.27mm","~"
+"J4","Conn_01x05_Male","amoeba-modules:Header_1x05_P1.27mm","~"
+"J1","Conn_01x05_Male","amoeba-modules:Header_1x05_P1.27mm","~"
+"J3","Conn_01x04_Male","amoeba-modules:Header_1x04_P1.27mm","~"
+"J5","Conn_01x01_Male","amoeba-modules:Header_1x01_P1.27mm","~"
+"J6","Conn_01x01_Male","amoeba-modules:Header_1x01_P1.27mm","~"
+"S1","MX1A","amoeba-modules:Kailh_MX_Socket","~"
+"D1","1N4148W-7-F","Diode_SMD:D_SOD-323","~"
+"LED1","SK6812MINI_E","amoeba-modules:LED_SK6812MINI_E_PLCC4_3.2x2.8mm_Shine_Through","https://cdn-shop.adafruit.com/product-files/2686/SK6812MINI_REV.01-1-2.pdf"

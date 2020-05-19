@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/jking/Documents/Project/ergodox/keyboard-pcbs/amoeba-king/amoeba-king.sch</source>
+    <date>Di 19 Mai 2020 10:56:18 CEST</date>
+    <tool>Eeschema 5.1.5</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date>15 sep 2015</date>
+        <source>amoeba-king.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/key/" tstamps="/55D92FDB/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date>15 sep 2015</date>
+        <source>key.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/key/switch/" tstamps="/55D92FDB/55DBAE5B/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date>15 sep 2015</date>
+        <source>switch.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="4" name="/key/led/" tstamps="/55D92FDB/55DBAE59/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date>15 sep 2015</date>
+        <source>led.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="J2">
+      <value>Conn_01x05_Male</value>
+      <footprint>amoeba-modules:Header_1x05_P1.27mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Conn_01x05_Male" description="Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5ED00D97</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>Conn_01x05_Male</value>
+      <footprint>amoeba-modules:Header_1x05_P1.27mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Conn_01x05_Male" description="Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5ED02613</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>Conn_01x05_Male</value>
+      <footprint>amoeba-modules:Header_1x05_P1.27mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Conn_01x05_Male" description="Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5ED03164</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>Conn_01x04_Male</value>
+      <footprint>amoeba-modules:Header_1x04_P1.27mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Conn_01x04_Male" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5EC2A986</tstamp>
+    </comp>
+    <comp ref="J5">
+      <value>Conn_01x01_Male</value>
+      <footprint>amoeba-modules:Header_1x01_P1.27mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Conn_01x01_Male" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5EC458E5</tstamp>
+    </comp>
+    <comp ref="J6">
+      <value>Conn_01x01_Male</value>
+      <footprint>amoeba-modules:Header_1x01_P1.27mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Conn_01x01_Male" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5EC464E7</tstamp>
+    </comp>
+    <comp ref="S1">
+      <value>MX1A</value>
+      <footprint>amoeba-modules:Kailh_MX_Socket</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="" part="MX1A-amoeba-rescue" description=""/>
+      <sheetpath names="/key/switch/" tstamps="/55D92FDB/55DBAE5B/"/>
+      <tstamp>55DBAE7F</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>1N4148W-7-F</value>
+      <footprint>Diode_SMD:D_SOD-323</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="D" description="Diode"/>
+      <sheetpath names="/key/switch/" tstamps="/55D92FDB/55DBAE5B/"/>
+      <tstamp>5EC43574</tstamp>
+    </comp>
+    <comp ref="LED1">
+      <value>SK6812MINI_E</value>
+      <footprint>amoeba-modules:LED_SK6812MINI_E_PLCC4_3.2x2.8mm_Shine_Through</footprint>
+      <datasheet>https://cdn-shop.adafruit.com/product-files/2686/SK6812MINI_REV.01-1-2.pdf</datasheet>
+      <libsource lib="" part="SK6812MINI_E" description=""/>
+      <sheetpath names="/key/led/" tstamps="/55D92FDB/55DBAE59/"/>
+      <tstamp>5EC279EC</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="" part="amoeba-royale-rescue_MX1A-amoeba-rescue">
+      <fields>
+        <field name="Reference">S</field>
+        <field name="Value">amoeba-royale-rescue_MX1A-amoeba-rescue</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="" part="amoeba-royale-rescue_SK6812MINI_E">
+      <footprints>
+        <fp>LED*SK6812MINI*PLCC*3.5x3.5mm*P1.75mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">amoeba-royale-rescue_SK6812MINI_E</field>
+        <field name="Footprint">LED_SMD:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VDD" type="power_in"/>
+        <pin num="2" name="DOUT" type="output"/>
+        <pin num="3" name="VSS" type="power_out"/>
+        <pin num="4" name="DIN" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x01_Male">
+      <description>Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x01_Male</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x04_Male">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04_Male</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x05_Male">
+      <description>Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x05_Male</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D">
+      <description>Diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>/usr/share/kicad/library/Connector.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/library/Device.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/DIN">
+      <node ref="J2" pin="5"/>
+      <node ref="J1" pin="1"/>
+      <node ref="J4" pin="1"/>
+      <node ref="LED1" pin="4"/>
+    </net>
+    <net code="2" name="/DOUT">
+      <node ref="J2" pin="1"/>
+      <node ref="LED1" pin="2"/>
+      <node ref="J1" pin="5"/>
+      <node ref="J4" pin="5"/>
+      <node ref="J3" pin="1"/>
+    </net>
+    <net code="3" name="/VDD">
+      <node ref="J1" pin="2"/>
+      <node ref="J4" pin="2"/>
+      <node ref="J3" pin="2"/>
+      <node ref="LED1" pin="1"/>
+      <node ref="J2" pin="2"/>
+    </net>
+    <net code="4" name="/GND">
+      <node ref="J4" pin="4"/>
+      <node ref="J1" pin="4"/>
+      <node ref="LED1" pin="3"/>
+      <node ref="J2" pin="4"/>
+      <node ref="J3" pin="4"/>
+    </net>
+    <net code="5" name="/R">
+      <node ref="J2" pin="3"/>
+      <node ref="S1" pin="1"/>
+      <node ref="J4" pin="3"/>
+    </net>
+    <net code="6" name="/C">
+      <node ref="J1" pin="3"/>
+      <node ref="D1" pin="1"/>
+      <node ref="J6" pin="1"/>
+      <node ref="J3" pin="3"/>
+      <node ref="J5" pin="1"/>
+    </net>
+    <net code="7" name="Net-(D1-Pad2)">
+      <node ref="D1" pin="2"/>
+      <node ref="S1" pin="2"/>
+    </net>
+  </nets>
+</export>
