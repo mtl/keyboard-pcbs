@@ -1,4 +1,4 @@
-16938777299576809
+16941960901572809
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -75261,14 +75261,21 @@ Header_1x01_P1.27mm
 Through hole straight pin header, 1x01, 1.27mm pitch, single row
 Through hole pin header THT 1x01 1.27mm single row
 0
-1
+2
 1
 amoeba-modules
 Header_1x04_P1.27mm
 Through hole straight pin header, 1x04, 1.27mm pitch, single row
 Through hole pin header THT 1x04 1.27mm single row
 0
+8
 4
+amoeba-modules
+Header_1x04_P1.27mmL
+Through hole straight pin header, 1x04, 1.27mm pitch, single row
+Through hole pin header THT 1x04 1.27mm single row
+0
+8
 4
 amoeba-modules
 Header_1x05_P1.27mm
@@ -75284,6 +75291,13 @@ LED_SK6812MINI_E_PLCC4_3.2x2.8mm_Shine_Through
 0
 4
 4
+amoeba-modules
+SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm
+SMD Solder 3-pad Jumper, 1x1.5mm rounded Pads, 0.3mm gap, open
+solder jumper open
+0
+3
+3
 amoeba-modules
 amoeba-logo
 Imported from ../examples/amoeba-logo.svg
