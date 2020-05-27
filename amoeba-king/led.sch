@@ -30,7 +30,7 @@ Wire Wire Line
 Wire Wire Line
 	5600 3950 5600 4050
 $Comp
-L amoeba-royale-rescue:SK6812MINI_E LED1
+L amoeba-king-rescue:SK6812MINI_E-amoeba-royale-rescue LED1
 U 1 1 5EC279EC
 P 5600 3650
 F 0 "LED1" H 5944 3696 50  0000 L CNN

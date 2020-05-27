@@ -20,7 +20,7 @@ N-SD0
 Wire Wire Line
 	5000 3550 5000 3600
 $Comp
-L amoeba-royale-rescue:MX1A-amoeba-rescue S?
+L amoeba-king-rescue:MX1A-amoeba-rescue-amoeba-royale-rescue S?
 U 1 1 55DBAE7F
 P 4800 3750
 AR Path="/55DBAE7F" Ref="S?"  Part="1" 
@@ -46,7 +46,7 @@ U 1 1 5EC43574
 P 5250 3550
 F 0 "D1" H 5250 3334 50  0000 C CNN
 F 1 "1N4148W-7-F" H 5250 3425 50  0000 C CNN
-F 2 "Diode_SMD:D_SOD-323" H 5250 3550 50  0001 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 5250 3550 50  0001 C CNN
 F 3 "~" H 5250 3550 50  0001 C CNN
 	1    5250 3550
 	-1   0    0    1   

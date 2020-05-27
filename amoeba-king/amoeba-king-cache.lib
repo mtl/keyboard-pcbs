@@ -95,11 +95,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# amoeba-royale-rescue_MX1A-amoeba-rescue
+# amoeba-king-rescue_MX1A-amoeba-rescue-amoeba-royale-rescue
 #
-DEF amoeba-royale-rescue_MX1A-amoeba-rescue S 0 40 Y Y 1 F N
+DEF amoeba-king-rescue_MX1A-amoeba-rescue-amoeba-royale-rescue S 0 40 Y Y 1 F N
 F0 "S" -150 250 60 H V C CNN
-F1 "amoeba-royale-rescue_MX1A-amoeba-rescue" 0 100 60 H V C CNN
+F1 "amoeba-king-rescue_MX1A-amoeba-rescue-amoeba-royale-rescue" 0 100 60 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -110,11 +110,11 @@ X ~ 2 200 150 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# amoeba-royale-rescue_SK6812MINI_E
+# amoeba-king-rescue_SK6812MINI_E-amoeba-royale-rescue
 #
-DEF amoeba-royale-rescue_SK6812MINI_E D 0 10 Y Y 1 F N
+DEF amoeba-king-rescue_SK6812MINI_E-amoeba-royale-rescue D 0 10 Y Y 1 F N
 F0 "D" 200 225 50 H V R BNN
-F1 "amoeba-royale-rescue_SK6812MINI_E" 50 -225 50 H V L TNN
+F1 "amoeba-king-rescue_SK6812MINI_E-amoeba-royale-rescue" 50 -225 50 H V L TNN
 F2 "LED_SMD:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm" 50 -300 50 H I L TNN
 F3 "" 100 -375 50 H I L TNN
 $FPLIST
