@@ -1,14 +1,24 @@
+// TODO add key-cap cutout
+// TODO extend board insert down ?
+
 $fn=20;
-difference() {
-    translate([0,0,(pcb_h+component_h+cherry_board_to_board)/2])
-    cube([pcb_outer_l,pcb_outer_l,(pcb_h+component_h+cherry_board_to_board)], true);
-    key_hole();
+
+show_demo=false;
+if (show_demo) {
+    x_spacing=0;
+    y_spacing=0;
+    z_spacing=0;
+    z_spacing_n=0;
+    difference() {
+        key_cutout(x_spacing,y_spacing, z_spacing, z_spacing_n);
+        key_hole(x_spacing,y_spacing,z_spacing, z_spacing_n);
+    }
 }
 
 /***** Printing Play ************************************************************/
 // Adjust this based on your desired tolerances
-h_play=0.2; // Horizontal Play
-v_play=0.3; // Vertical Play
+h_play=0.3; // Horizontal Play
+v_play=0.2; // Vertical Play
 
 
 /***** Cherry *******************************************************************/
@@ -28,21 +38,67 @@ cherry_clip_d=(cherry_key_top_side-cherry_key_side)/2;
 
 /***** PCB **********************************************************************/
 pcb_outer_l=19;
-pcb_inner_l=16.5 + v_play;
+pcb_inner_l=16.5 + h_play;
 pcb_h=1.6+h_play;
-pcb_x_tab_l=11.5 + v_play;
-pcb_y_tab_l=8.5 + v_play;
+pcb_x_tab_l=11.5 + h_play;
+pcb_y_tab_l=8.5 + h_play;
 pcb_tab_d=(pcb_outer_l - pcb_inner_l)/2;
-pcb_x_tab_l2=pcb_x_tab_l/2-pcb_tab_d;
-pcb_y_tab_l2=pcb_y_tab_l/2-pcb_tab_d;
+pcb_x_tab_l2=pcb_x_tab_l/2-pcb_tab_d*2;
+pcb_y_tab_l2=pcb_y_tab_l/2-pcb_tab_d*2;
 
-/***** Componenst ***************************************************************/
+/***** Components ***************************************************************/
 component_h=2;
 
-module key_hole() {
+/***** Cumulative Numbers *******************************************************/
+base_h=cherry_board_to_board+pcb_h+component_h;
+
+module key_cutout( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0 ) {
+    z=(pcb_h+component_h+cherry_board_to_board+z_spacing+z_spacing_n);
+    translate([0,0,z/2-z_spacing])
+    cube([pcb_outer_l+x_spacing,pcb_outer_l+y_spacing,z], true);
+}
+
+
+
+module key_hole( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0 ) {
+    // Cutout for keycap
+    x = (pcb_outer_l)/2;
+    y = (pcb_outer_l)/2;
+    x2 = (pcb_outer_l+x_spacing)/2;
+    y2= (pcb_outer_l+y_spacing)/2;
+    polyhedron([
+        [x,y,0],
+        [-x,y,0],
+        [-x,-y,0],
+        [x,-y,0],
+        [x2,y2,-z_spacing],
+        [-x2,y2,-z_spacing],
+        [-x2,-y2,-z_spacing],
+        [x2,-y2,-z_spacing]
+    ],[
+        [0,1,2,3],
+        [4,7,6,5],
+        [0,3,7,4],
+        [0,4,5,1],
+        [1,5,6,2],
+        [2,6,7,3]
+    ]);
+
+    // Extra bottom extension
+    z_fixer=0.001;
+    translate([0,0,(z_spacing_n-z_fixer)/2+cherry_board_to_board+pcb_h+component_h])
+    union() {
+        cube([x*2,y*2,z_spacing_n+z_fixer], true);
+        translate([0,0,-component_h/2])
+        union() {
+            cube([pcb_x_tab_l,pcb_tab_offset_x+pcb_tab_d*2,z_spacing_n+z_fixer+component_h], true);
+            cube([pcb_tab_offset_y+pcb_tab_d*2,pcb_tab_d,z_spacing_n+z_fixer+component_h], true);
+        }
+    }
+
     // Main Key body and mounting plate cutout
-    translate([0,0,(cherry_board_to_board+pcb_h)/2])
-    cube([cherry_key_side + v_play, cherry_key_side + v_play, cherry_board_to_board+pcb_h], true);
+    translate([0,0,(cherry_board_to_board+pcb_h-z_spacing)/2])
+    cube([cherry_key_side + h_play, cherry_key_side + h_play, cherry_board_to_board+pcb_h+z_spacing], true);
 
     // Slots for Key side clips, needed to clip 
     cherry_clip_offset_z=(cherry_board_to_board+cherry_metal_frame)/2;
@@ -51,6 +107,13 @@ module key_hole() {
         translate([0,i*cherry_clip_offset_y,cherry_clip_offset_z+pcb_h/2])
         cube([cherry_clip_l, cherry_clip_d, cherry_board_to_board-cherry_metal_frame+pcb_h], true);
     }
+
+    // A cutout to slide PCB in better
+    etw=pcb_x_tab_l+h_play;
+    etl=(pcb_outer_l-cherry_key_side)/2;
+    translate([-etw/2,cherry_key_side/2,cherry_board_to_board+z_fixer])
+    rotate([0,90,0])
+    extruded_triangle(etl,etl,etw);
 
     pcb_tab_offset=(pcb_outer_l-pcb_tab_d)/2;
     pcb_tab_offset_x=(pcb_outer_l-pcb_x_tab_l2)/2;
@@ -96,7 +159,8 @@ module key_hole() {
                     extruded_triangle(component_h, component_h, pcb_outer_l);
                 }
 
-              }
+            }
+
             translate([pcb_outer_l/2, pcb_outer_l/2, 0])
             rotate([0,0,180])
             extruded_triangle(pcb_y_tab_l2+pcb_tab_d,pcb_x_tab_l2+pcb_tab_d,component_h);
