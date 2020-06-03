@@ -5,6 +5,8 @@ $fn=100;
 
 h=base_h;
 
+ergo=true;
+
 module straight_row( count = 5, key_spacing = pcb_outer_l, width = pcb_outer_l ) {
   s=-(count/2)+0.5;
   e=s+count-1;
@@ -20,13 +22,13 @@ module straight_row( count = 5, key_spacing = pcb_outer_l, width = pcb_outer_l )
   }
 }
 
-module dactyl_row( count = 5, width = pcb_outer_l, radius = 105, angle = 11, rotation = 0 ) {
+module dactyl_row( count = 5, width = pcb_outer_l, radius = 105, angle = 11, rotation = 0, key_2U = false) {
   s=-(count/2)+0.5;
   e=s+count-1;
 
   for(i=[s:e]) {
     rotate([angle*i + rotation,0,0])
-    key_r(width - pcb_outer_l, radius, angle);
+    key_r(width - pcb_outer_l, radius, angle, key_2U);
   }
 }
 
@@ -48,23 +50,24 @@ module dactly_ergo() {
     dactyl_row(ergo[i][0], ergo[i][1], ergo[i][2], ergo[i][3], ergo[i][4]);
   }
 }
-dactly_ergo();
-
 
 module dactyl_ergo_thumb() {
   translate([0,0,-110])
   union() {
     rotate([0,0,90])
-    dactyl_row(2,19,105,11,-5.5,19*1.5,0);
+    dactyl_row(2,19,105,11,-5.5, true);
     rotate([0,0,0])
     union() {
-      dactyl_row(1,19,105,11,16.5,19,0);
+      dactyl_row(1,19,105,11,16.5);
       translate([19,0,0])
-      dactyl_row(3,19,105,11,5.5,38,0);
+      dactyl_row(3,19,105,11,5.5);
     }
   }
 }
 
-translate([145,68,0])
-rotate([0,-30,45])
-dactyl_ergo_thumb();
+if (ergo) {
+  dactly_ergo();
+  translate([145,68,0])
+  rotate([0,-30,45])
+  dactyl_ergo_thumb();
+}
