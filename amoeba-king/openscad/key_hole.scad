@@ -1,20 +1,39 @@
 include <./arc.scad>
 
 show_demo=false;
+show_demo_r=false;
+show_demo_r_back=false;
+show_double=false;
 if (show_demo) {
-    x_spacing=1;
-    y_spacing=10;
-    z_spacing=5;
-    z_spacing_n=5;
-    key(x_spacing,y_spacing,z_spacing, z_spacing_n);
-    translate([0,(pcb_outer_l+y_spacing),0])
-    key_2U(x_spacing,y_spacing,z_spacing, z_spacing_n);
+    x_spacing=0;
+    y_spacing=0;
+    z_spacing=0;
+    z_spacing_n=0;
+    if (show_demo_r) {
+        r=105;
+        color([1,0,0])
+        translate([0,0,-r])
+        key_r(x_spacing,r);
+        if (show_demo_r_back) {
+            color([0,1,0])
+            translate([0,0,-r])
+            key_r_back(x_spacing, r);
+        }
+    } else {
+        key(x_spacing,y_spacing,z_spacing, z_spacing_n);
+        if (show_double) {
+            translate([0,(pcb_outer_l+y_spacing),0])
+            key_2U(x_spacing,y_spacing,z_spacing, z_spacing_n);
+        }
+    }
 }
 
 /***** Printing Play ************************************************************/
 // Adjust this based on your desired tolerances
-h_play=0; // Horizontal Play
-v_play=0.2; // Vertical Play
+h_play=0; // PCB Horizontal Play
+v_play=0.2; // PCB Vertical Play
+// Cherry Horizontal Play
+cherry_h_play=0.2;
 
 
 /***** Cherry *******************************************************************/
@@ -27,7 +46,7 @@ cherry_metal_frame=1.5; // ~ 0.06*25.4;
 cherry_key_top_side=17;
 
 // Cut out
-cherry_key_side=14; // ~ 0.551*25.4;
+cherry_key_side=14+cherry_h_play; // ~ 0.551*25.4;
 // Side Extensions
 cherry_key_side_x=0.8;
 cherry_key_side_y=3.5;
@@ -62,7 +81,7 @@ module key_cutout( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0 
 module key_hole( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0, side_cut_outs = true, key_cap = true ) {
     // Cutout for keycap
     x = (pcb_outer_l)/2;
-    y = (pcb_outer_l)/2;
+    y = (pcb_outer_l+y_spacing)/2;
     x2 = (pcb_outer_l+x_spacing)/2;
     y2= (pcb_outer_l+y_spacing)/2;
     if (key_cap) {
@@ -280,18 +299,34 @@ module key( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0 ) {
 
 module key_r( x_spacing = 0, radius = 105, angle = 11, key_2U = false ) {
     w = (pcb_outer_l + x_spacing) * (key_2U ? 2 : 1);
+    y_spacing = 6;
+    z_spacing= 0.7;
+    z_spacing_2 = z_spacing;
+
+    h = base_h + z_spacing;
     difference() {
         translate([w/2,0,0])
         rotate([0,-90,0])
-        arc_extrude(radius, base_h, angle, w);
+        arc_extrude(radius, h, angle, w);
         translate([0,0,radius])
         if (key_2U) {
-            key_hole_2U(x_spacing,10,5,2);
+            key_hole_2U(x_spacing,y_spacing,z_spacing,z_spacing_2);
         } else {
-            key_hole(x_spacing,10,5,2);
+            key_hole(x_spacing,y_spacing,z_spacing, z_spacing_2);
         }
     }
 }
+
+module key_r_back( x_spacing = 0, radius = 105, angle = 11, key_2U = false ) {
+    w = (pcb_outer_l + x_spacing) * (key_2U ? 2 : 1);
+    difference() {
+        translate([w/2,0,0])
+        rotate([0,-90,0])
+        arc_extrude(radius+base_h,2,angle, w);
+        translate([0,0,radius])
+        key_r(x_spacing, radius, angle, key_2U);
+    }
+} 
 
 
 module extruded_triangle( w,l,h ) {
