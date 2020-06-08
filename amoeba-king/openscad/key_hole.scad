@@ -30,7 +30,7 @@ if (show_demo) {
 
 /***** Printing Play ************************************************************/
 // Adjust this based on your desired tolerances
-h_play=0; // PCB Horizontal Play
+h_play=0.2; // PCB Horizontal Play
 v_play=0.2; // PCB Vertical Play
 // Cherry Horizontal Play
 cherry_h_play=0.2;
@@ -55,8 +55,11 @@ cherry_key_side_y_offset=4.25;
 cherry_clip_l=5;
 cherry_clip_d=(cherry_key_top_side-cherry_key_side)/2;
 
+cherry_2U_play_x=0.7;
+cherry_2U_play_y=0.5;
+
 /***** PCB **********************************************************************/
-pcb_outer_l=19;
+pcb_outer_l=19.2;
 pcb_inner_l=16.5 + h_play;
 pcb_h=1.6+h_play;
 pcb_x_tab_l=11.5 + h_play;
@@ -72,13 +75,13 @@ cut_out=false;
 /***** Cumulative Numbers *******************************************************/
 base_h=cherry_board_to_board+pcb_h+component_h;
 
-module key_cutout( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0 ) {
+module key_block( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0 ) {
     z=(pcb_h+component_h+cherry_board_to_board+z_spacing+z_spacing_n);
     translate([0,0,z/2-z_spacing])
     cube([pcb_outer_l+x_spacing,pcb_outer_l+y_spacing,z], true);
 }
 
-module key_hole( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0, side_cut_outs = true, key_cap = true ) {
+module key_hole( grip = true, x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0, side_cut_outs = true, key_cap = true ) {
     // Cutout for keycap
     x = (pcb_outer_l)/2;
     y = (pcb_outer_l+y_spacing)/2;
@@ -167,10 +170,17 @@ module key_hole( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0, s
                 translate([i*pcb_tab_offset_fillet_x, pcb_tab_offset_fillet,-pcb_n_comp_h/2])
                 cylinder(pcb_n_comp_h, pcb_tab_d, pcb_tab_d);
                 // Y Tab Corners Bottom
-                translate([i*pcb_tab_offset_x, -pcb_tab_offset, -component_h/2])
-                cube([pcb_x_tab_l2, pcb_tab_d, pcb_h], true);
-                translate([i*pcb_tab_offset_fillet_x, -pcb_tab_offset_fillet,-(pcb_n_comp_h/2)])
-                cylinder(pcb_h, pcb_tab_d, pcb_tab_d);
+                if (grip) {
+                    translate([i*pcb_tab_offset_x, -pcb_tab_offset, -component_h/2])
+                    cube([pcb_x_tab_l2, pcb_tab_d, pcb_h], true);
+                    translate([i*pcb_tab_offset_fillet_x, -pcb_tab_offset_fillet,-(pcb_n_comp_h/2)])
+                    cylinder(pcb_h, pcb_tab_d, pcb_tab_d);
+                } else {
+                    translate([i*pcb_tab_offset_x, -pcb_tab_offset, 0])
+                    cube([pcb_x_tab_l2, pcb_tab_d, pcb_n_comp_h], true);
+                    translate([i*pcb_tab_offset_fillet_x, -pcb_tab_offset_fillet,-(pcb_n_comp_h/2)])
+                    cylinder(pcb_n_comp_h, pcb_tab_d, pcb_tab_d);
+                }
 
                 // X Tab Corners
                 translate([i*pcb_tab_offset, pcb_tab_offset_y, 0])
@@ -178,6 +188,14 @@ module key_hole( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0, s
                 translate([i*pcb_tab_offset_fillet, pcb_tab_offset_fillet_y,-pcb_n_comp_h/2])
                 cylinder(pcb_n_comp_h, pcb_tab_d, pcb_tab_d);
 
+                translate([i*pcb_tab_offset, -pcb_tab_offset_y, -component_h/2])
+                cube([pcb_tab_d, pcb_y_tab_l2, pcb_h], true);
+                translate([i*pcb_tab_offset_fillet, -pcb_tab_offset_fillet_y,-pcb_n_comp_h/2])
+                cylinder(pcb_h, pcb_tab_d, pcb_tab_d);
+
+
+/*
+                This gets in the way of the row wiring
                 // X Tab Corners Cut
                 difference() {
                     union() {
@@ -190,21 +208,26 @@ module key_hole( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0, s
                     rotate([180,90,0])
                     extruded_triangle(component_h, component_h, pcb_outer_l);
                 }
+*/
             }
 
-            translate([pcb_outer_l/2, pcb_outer_l/2, 0])
-            rotate([0,0,180])
-            extruded_triangle(pcb_x_tab_l2+pcb_tab_d,pcb_y_tab_l2+pcb_tab_d,component_h);
+            if (grip) {
+                translate([pcb_outer_l/2, pcb_outer_l/2, 0])
+                rotate([0,0,180])
+                extruded_triangle(pcb_x_tab_l2+pcb_tab_d,pcb_y_tab_l2+pcb_tab_d,component_h);
 
-            translate([-pcb_outer_l/2, pcb_outer_l/2, component_h])
-            rotate([0,180,180])
-            extruded_triangle(pcb_x_tab_l2+pcb_tab_d,pcb_y_tab_l2+pcb_tab_d,component_h);
+                translate([-pcb_outer_l/2, pcb_outer_l/2, component_h])
+                rotate([0,180,180])
+                extruded_triangle(pcb_x_tab_l2+pcb_tab_d,pcb_y_tab_l2+pcb_tab_d,component_h);
+            } else {
+
+            }
         }
     }
 }
 
-module key_hole_2U( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0) {
-    key_hole(x_spacing*2 + pcb_outer_l, y_spacing, z_spacing, z_spacing_n, false, false );
+module key_hole_2U( grip = true, x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0) {
+    key_hole( grip, x_spacing*2 + pcb_outer_l, y_spacing, z_spacing, z_spacing_n, false, false );
 
     // Cutout for keycap
     x = (pcb_outer_l*2)/2;
@@ -229,75 +252,86 @@ module key_hole_2U( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0
         [2,6,7,3]
     ]);
 
+    variant_one = false;
+    if (variant_one) {
+        extension_x_x=0.825;
+        extension_x_y=2.785;
+        support_x=6.75;
+        support_y=12.3;
+        support_x_gap=1.525;
 
-    extension_x_x=0.825;
-    extension_x_y=2.785;
-    support_x=6.75;
-    support_y=12.3;
-    support_x_gap=1.525;
+        extension_x_y_top_offset=4.7;
+        extension_x_x_offset=(cherry_key_side+extension_x_x)/2+support_x+support_x_gap;
+        support_x_gap_y=14-(extension_x_y_top_offset*2);
+        extension_x_y_offset=(support_x_gap_y-extension_x_y)/2;
 
-    extension_x_y_top_offset=4.7;
-    extension_x_x_offset=(cherry_key_side+extension_x_x)/2+support_x+support_x_gap;
-    support_x_gap_y=14-(extension_x_y_top_offset*2);
-    extension_x_y_offset=(support_x_gap_y-extension_x_y)/2;
+        support_x_offset=(cherry_key_side+support_x)/2+support_x_gap;
+        support_y_offset=(4.47-3.23)/2;
 
-    support_x_offset=(cherry_key_side+support_x)/2+support_x_gap;
-    support_y_offset=(4.47-3.23)/2;
+        extension_y_x=3.3;
+        extension_y_y=1.2;
+        extension_y_x_offset = support_x_offset;
+        extension_y_y_offset = support_y_offset+(support_y+extension_y_y)/2;
 
-    extension_y_x=3.3;
-    extension_y_y=1.2;
-    extension_y_x_offset = support_x_offset;
-    extension_y_y_offset = support_y_offset+(support_y+extension_y_y)/2;
+        full_h=base_h+z_spacing+z_spacing_n;
+        z_offset= (base_h+z_spacing_n+z_spacing)/2;
 
-    full_h=base_h+z_spacing+z_spacing_n;
-    z_offset= (base_h+z_spacing_n+z_spacing)/2;
+        plate_bottom_x=support_x+extension_x_x+1;
+        plate_bottom_y=pcb_outer_l;
+        plate_bottom_z=full_h-1.5;
+        plate_bottom_offset_x= support_x_offset + extension_x_x/2+1;
+        plate_bottom_offset_y= 0;
+        plate_bottom_offset_z= z_offset+1.5/2;
 
-    plate_bottom_x=support_x+extension_x_x+1;
-    plate_bottom_y=pcb_outer_l;
-    plate_bottom_z=full_h-1.5;
-    plate_bottom_offset_x= support_x_offset + extension_x_x/2+1;
-    plate_bottom_offset_y= 0;
-    plate_bottom_offset_z= z_offset+1.5/2;
+        support_tri_x=(pcb_outer_l-cherry_key_side-support_x_gap)/2;
+        for(i=[-1,1]) {
+            translate([i*support_x_offset,support_y_offset,(cherry_board_to_board)/2])
+            difference() {
+                cube([support_x, support_y, cherry_board_to_board], true);
+                rotate([0,0,90*(i-1)])
+                translate([-(support_x/2),-(cherry_key_side/2),(cherry_board_to_board)/2])
+                rotate([-90,0,0])
+                extruded_triangle(support_tri_x, pcb_tab_d, cherry_key_side);
+            }
 
-    support_tri_x=(pcb_outer_l-cherry_key_side-support_x_gap)/2;
-    for(i=[-1,1]) {
-        translate([i*support_x_offset,support_y_offset,(cherry_board_to_board)/2])
-        difference() {
-            cube([support_x, support_y, cherry_board_to_board], true);
-            rotate([0,0,90*(i-1)])
-            translate([-(support_x/2),-(cherry_key_side/2),(cherry_board_to_board)/2])
-            rotate([-90,0,0])
-            extruded_triangle(support_tri_x, pcb_tab_d, cherry_key_side);
+            translate([i*(cherry_key_side+support_x_gap)/2, 0, z_offset])
+            cube([support_x_gap+support_tri_x*2,support_x_gap_y,full_h], true);
+            translate([i*extension_x_x_offset, -extension_x_y_offset, z_offset])
+            cube([extension_x_x, extension_x_y, full_h], true);
+            translate([i*extension_y_x_offset,extension_y_y_offset, z_offset])
+            cube([extension_y_x, extension_y_y, full_h],true);
+
+            translate([i*plate_bottom_offset_x, plate_bottom_offset_y, plate_bottom_offset_z])
+            cube([plate_bottom_x, plate_bottom_y, plate_bottom_z], true);
         }
-
-        translate([i*(cherry_key_side+support_x_gap)/2, 0, z_offset])
-        cube([support_x_gap+support_tri_x*2,support_x_gap_y,full_h], true);
-        translate([i*extension_x_x_offset, -extension_x_y_offset, z_offset])
-        cube([extension_x_x, extension_x_y, full_h], true);
-        translate([i*extension_y_x_offset,extension_y_y_offset, z_offset])
-        cube([extension_y_x, extension_y_y, full_h],true);
-
-        translate([i*plate_bottom_offset_x, plate_bottom_offset_y, plate_bottom_offset_z])
-        cube([plate_bottom_x, plate_bottom_y, plate_bottom_z], true);
+    } else {
+        sw=3+cherry_2U_play_y;
+        sh=13.5+cherry_2U_play_x;
+        for (i=[-1,1]) {
+            translate([i*(23.5/2),0,base_h/2])
+            cube([sw,sh,base_h],true);
+            translate([i*(23.5/2),0,base_h/2+1.5])
+            cube([sw+2,sh+2,base_h],true);
+        }
     }
 }
 
-module key_2U( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0 ) {
+module key_2U( grip = true, x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0 ) {
     difference() {
-        key_cutout( pcb_outer_l + x_spacing*2, y_spacing, z_spacing, z_spacing_n);
-        key_hole_2U(x_spacing,y_spacing,z_spacing, z_spacing_n);
+        key_block( pcb_outer_l + x_spacing*2, y_spacing, z_spacing, z_spacing_n);
+        key_hole_2U( grip, x_spacing,y_spacing,z_spacing, z_spacing_n);
     }
 }
 
 
-module key( x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0 ) {
+module key( grip = true, x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spacing_n = 0 ) {
     difference() {
-        key_cutout(x_spacing,y_spacing, z_spacing, z_spacing_n);
-        key_hole(x_spacing,y_spacing,z_spacing, z_spacing_n);
+        key_block(x_spacing,y_spacing, z_spacing, z_spacing_n);
+        key_hole( grip, x_spacing,y_spacing,z_spacing, z_spacing_n);
     }
 }
 
-module key_r( x_spacing = 0, radius = 105, angle = 11, key_2U = false ) {
+module key_r( grip = true, x_spacing = 0, radius = 105, angle = 11, key_2U = false ) {
     w = (pcb_outer_l + x_spacing) * (key_2U ? 2 : 1);
     y_spacing = 6;
     z_spacing= 0.7;
@@ -310,9 +344,9 @@ module key_r( x_spacing = 0, radius = 105, angle = 11, key_2U = false ) {
         arc_extrude(radius, h, angle, w);
         translate([0,0,radius])
         if (key_2U) {
-            key_hole_2U(x_spacing,y_spacing,z_spacing,z_spacing_2);
+            key_hole_2U( grip, x_spacing,y_spacing,z_spacing,z_spacing_2);
         } else {
-            key_hole(x_spacing,y_spacing,z_spacing, z_spacing_2);
+            key_hole( grip, x_spacing,y_spacing,z_spacing, z_spacing_2);
         }
     }
 }
