@@ -12,6 +12,7 @@ grip = false;
 ergo=false;
 x_spacing=0.1;
 y_spacing=0.1;
+case_shell=2.1; // Wall Thickness of case
 
 module straight_row( count = 5, grip = false, key_spacing = pcb_outer_l, width = pcb_outer_l ) {
   s=-(count/2)+0.5;
@@ -65,18 +66,68 @@ if (planck > 0) {
   }
 }
 
-if (numpad) {
-  mcu_y=19;
-  cr=2.1;
-  mcu_x=36;
-  mcu_z=15;
+m3_screw_hole = 3/2;
+m3_screw_wrap=7/2;
+m3_screw_head = 6/2;
+m3_screw_head_h = 2;
+module m3_hole( thread_h, head = false ) {
+  cylinder( thread_h, m3_screw_hole, m3_screw_hole );
+  if (head) {
+    translate([0,0,thread_h])
+    cylinder( m3_screw_head_h, m3_screw_hole, m3_screw_head );
+  }
+}
+module m3_support( thread_h, head = false ) {
+  cylinder( thread_h, m3_screw_wrap, m3_screw_wrap );
+  if (head) {
+    translate([0,0,thread_h])
+    cylinder( m3_screw_head_h, m3_screw_wrap, m3_screw_wrap );
+  }
+}
 
-  mcu_hole=3/2;
+module numpad_shell( base_h, mcu_y = 19, cutout = true ) {
   w=(pcb_outer_l+x_spacing)*4;
   h=(pcb_outer_l+y_spacing)*5;
+  m3_offset = (m3_screw_wrap - case_shell);
+  difference() {
+    union() {
+      for(i=[-1,1]) {
+        for (j=[-1,1]) {
+          translate([i*(pcb_outer_l*2-m3_offset), j*(pcb_outer_l*2.5+mcu_y/2-m3_offset) + (case_shell*(j-1)/2), 0])
+          m3_support(base_h);
+          translate([0, j*(pcb_outer_l*2.5+(case_shell+mcu_y)/2) + (case_shell*(j-1)/2), base_h/2])
+          cube([pcb_outer_l*4-m3_offset*2,case_shell,base_h], true);
+        }
+        translate([i*(pcb_outer_l*2-m3_offset), -(pcb_outer_l*2+case_shell), 0])
+        m3_support(base_h);
+        translate([i*(pcb_outer_l*2+case_shell/2),-case_shell/2, base_h/2])
+        cube([case_shell,pcb_outer_l*5+mcu_y+case_shell-m3_offset*2,base_h], true);
+      }
+      color([1,0,0])
+      translate([0, -(pcb_outer_l*2+case_shell/2), base_h/2])
+      cube([pcb_outer_l*4,case_shell,base_h], true);
+    }
+    translate([0,mcu_y/2,base_h/2])
+    cube([w-(pcb_tab_d*2), h-(pcb_tab_d*2), base_h],true);
+  }
+
+  if (!cutout) {
+    l = pcb_outer_l*5+mcu_y+case_shell;
+    translate([0,-case_shell/2, base_h/2])
+    cube([pcb_outer_l*4,l,base_h], true);
+  }
+}
+
+module numpad_middle( mcu_y = 19 ) {
+  mcu_x=36;
+  mcu_z=15;
+  m3_offset = (m3_screw_wrap - case_shell);
+
+  /*
   mcu_hole_x=(w/2)-10;
   mcu_hole_x_offset=12.7;
   mcu_hole_z=2.54*2;
+  */
 
   difference() {
     union() {
@@ -93,60 +144,85 @@ if (numpad) {
         key_2U(false);
       }
 
-/*
-      translate([0,-(pcb_outer_l*2.5),mcu_z/2])
-      union() {
-        color([1,0,0])
-        union() {
-          cube([mcu_x,mcu_y,mcu_z], true);
-        }
-        color([0,1,0])
-        union() {
-          for (i=[-1,1]) {
-            translate([0,0,-mcu_z/2+mcu_hole_z])
-            rotate([90,0,0])
-            cylinder(mcu_y*2,mcu_hole,mcu_hole);
-          }
-        }
-      }
-*/
-      difference() {
-        union() {
-          for(i=[-1,1]) {
-            for (j=[-1,1]) {
-              translate([i*pcb_outer_l*2, j*(pcb_outer_l*2.5+mcu_y/2) + (cr*(j-1)/2), 0])
-              cylinder(base_h,cr,cr);
-              translate([0, j*(pcb_outer_l*2.5+(cr+mcu_y)/2) + (cr*(j-1)/2), base_h/2])
-              cube([pcb_outer_l*4,cr,base_h], true);
-            }
-            translate([i*(pcb_outer_l*2+cr/2),-cr/2, base_h/2])
-            cube([cr,pcb_outer_l*5+mcu_y+cr,base_h], true);
-            translate([i*pcb_outer_l*2, -(pcb_outer_l*2+cr), 0])
-            cylinder(base_h,cr,cr);
-          }
-          color([1,0,0])
-          translate([0, -(pcb_outer_l*2+cr/2), base_h/2])
-          cube([pcb_outer_l*4,cr,base_h], true);
-        }
-        translate([0,mcu_y/2,base_h/2])
-        cube([w-(pcb_tab_d*2), h-(pcb_tab_d*2), base_h],true);
-      }
+      numpad_shell(base_h);
     }
     union() {
       for(i=[-1,1]) {
-        translate([i*pcb_outer_l*2, 0, cr])
-        cylinder(base_h,mcu_hole,mcu_hole);
-        translate([i*pcb_outer_l*2, -(pcb_outer_l*2+cr), -cr])
-        cylinder(base_h,mcu_hole,mcu_hole);
+        // middle holes
+        translate([i*(pcb_outer_l*2-m3_offset), 0, case_shell])
+        m3_hole(base_h);
+
+        // Top middle holes
+        translate([i*(pcb_outer_l*2-m3_offset), -(pcb_outer_l*2+case_shell), -case_shell])
+        m3_hole(base_h);
+
         for (j=[-1,1]) {
-          translate([i*pcb_outer_l*2, j*(pcb_outer_l*2.5+mcu_y/2) + (cr*(j-1)/2), j+1])
-          cylinder(base_h,mcu_hole,mcu_hole);
+          // Corner holes
+          translate([i*(pcb_outer_l*2-m3_offset), j*(pcb_outer_l*2.5+mcu_y/2-m3_offset) + (case_shell*(j-1)/2), j+1])
+          m3_hole(base_h);
         }
       }
-      translate([0,-pcb_outer_l*2, base_h-component_h/2])
-      cube([pcb_outer_l*4, cr*4, component_h], true);
+      translate([0,-(pcb_outer_l*2-m3_offset), base_h-component_h/2])
+      m3_hole(base_h);
     }
   }
+}
+
+module numpad_back( mcu_y = 19 ) {
+  bt=2; // Back Thickness
+  gap=1;
+  bh=bt+gap;
+  m3_offset = (m3_screw_wrap - case_shell);
+
+  translate([-pcb_outer_l*5, 0, 0])
+  union() {
+    difference() {
+      union () {
+        translate([0, 0, bt])
+        numpad_shell(gap, mcu_y);
+        numpad_shell(bt, mcu_y, false);
+        for (i=[-1,1]) {
+          translate([i*(pcb_outer_l*2-m3_offset), 0, 0])
+          m3_support(bh);
+        }
+       }
+      translate([0,0,bh])
+      rotate([0,180,0])
+      union() {
+        for(i=[-1,1]) {
+          translate([i*(pcb_outer_l*2-m3_offset), 0, 0])
+          m3_hole(bh - m3_screw_head_h, true);
+          for (j=[-1,1]) {
+            translate([i*(pcb_outer_l*2-m3_offset), j*(pcb_outer_l*2.5+mcu_y/2-m3_offset) + (case_shell*(j-1)/2), 0])
+            m3_hole(bh - m3_screw_head_h, true);
+          }
+        }
+      }
+    }
+
+    // Key Supports
+    translate([-pcb_outer_l*1.5,-pcb_outer_l*1.5,bt])
+    union () {
+      for (j=[0:2]) {
+        translate([0, pcb_outer_l*j, 0])
+        key_back_support(gap);
+      }
+      translate([0, pcb_outer_l*3.5, 0])
+      rotate([0,0,90])
+      key_back_support(gap);
+      for(j=[0:4]) {
+        for(i=[1:3]) {
+          translate([pcb_outer_l*i, pcb_outer_l*j, 0])
+          key_back_support(gap);
+        }
+      }
+    }
+  }
+}
+
+if (numpad) {
+  numpad_middle();
+  numpad_back();
 }
 
 module dactyl_row( count = 5, width = pcb_outer_l, radius = 105, angle = 11, rotation = 0, key_2U = false) {

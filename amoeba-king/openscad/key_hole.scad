@@ -68,9 +68,14 @@ pcb_tab_d=(pcb_outer_l - pcb_inner_l)/2;
 pcb_x_tab_l2=(pcb_outer_l-pcb_x_tab_l)/2-pcb_tab_d;
 pcb_y_tab_l2=(pcb_outer_l-pcb_y_tab_l)/2-pcb_tab_d;
 
+pcb_mount_x_offset=8.5;
+pcb_mount_hole_r=2/2; // ~2.4 - play
+pcb_mount_stub_r=3/2;
+
 /***** Components ***************************************************************/
 component_h=2;
 cut_out=false;
+pcb_n_comp_h=pcb_h+component_h;
 
 /***** Cumulative Numbers *******************************************************/
 base_h=cherry_board_to_board+pcb_h+component_h;
@@ -156,7 +161,6 @@ module key_hole( grip = true, x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spa
     pcb_tab_offset_fillet=pcb_outer_l/2;
     pcb_tab_offset_fillet_x=pcb_x_tab_l/2 + pcb_tab_d;
     pcb_tab_offset_fillet_y=pcb_y_tab_l/2 + pcb_tab_d;
-    pcb_n_comp_h=pcb_h+component_h;
 
     translate([0,0,pcb_n_comp_h/2 + cherry_board_to_board])
     // Centor part
@@ -192,23 +196,6 @@ module key_hole( grip = true, x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spa
                 cube([pcb_tab_d, pcb_y_tab_l2, pcb_h], true);
                 translate([i*pcb_tab_offset_fillet, -pcb_tab_offset_fillet_y,-pcb_n_comp_h/2])
                 cylinder(pcb_h, pcb_tab_d, pcb_tab_d);
-
-
-/*
-                This gets in the way of the row wiring
-                // X Tab Corners Cut
-                difference() {
-                    union() {
-                        translate([i*pcb_tab_offset, -pcb_tab_offset_y, 0])
-                        cube([pcb_tab_d, pcb_y_tab_l2, pcb_n_comp_h], true);
-                        translate([i*pcb_tab_offset_fillet, -pcb_tab_offset_fillet_y,-pcb_n_comp_h/2])
-                        cylinder(pcb_n_comp_h, pcb_tab_d, pcb_tab_d);
-                    }
-                    translate([pcb_outer_l/2,-(pcb_tab_offset_fillet_y-pcb_tab_d),component_h])
-                    rotate([180,90,0])
-                    extruded_triangle(component_h, component_h, pcb_outer_l);
-                }
-*/
             }
 
             if (grip) {
@@ -378,4 +365,26 @@ module extruded_triangle( w,l,h ) {
         [1,4,5,2],
         [3,5,4]
     ]);
+}
+
+module key_back_support( z_spacing = 0, x_spacing = 0, y_spacing = 0 ) {
+    h = pcb_n_comp_h + z_spacing;
+    intersection() {
+        translate([0,0,h/2])
+        cube([pcb_outer_l, pcb_outer_l, h], true);
+        union () {
+            for (i=[-1,1]) {
+                translate([i*pcb_outer_l/2, 0, 0])
+                union() {
+                    cylinder(component_h+z_spacing, pcb_mount_stub_r, pcb_mount_stub_r);
+                    cylinder(h, pcb_mount_hole_r, pcb_mount_hole_r);
+                }
+                translate([pcb_outer_l/2-pcb_mount_x_offset,i*pcb_outer_l/2, 0])
+                union() {
+                    cylinder(component_h+z_spacing, pcb_mount_stub_r, pcb_mount_stub_r);
+                    cylinder(h, pcb_mount_hole_r, pcb_mount_hole_r);
+                }
+            }
+        }
+    }
 }
