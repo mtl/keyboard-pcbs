@@ -6,10 +6,10 @@ $fn=100;
 h=base_h;
 
 planck=0;
-numpad= true;
+numpad= false;
 double_row = false;
 grip = false;
-ergo=false;
+ergo=true;
 x_spacing=0.1;
 y_spacing=0.1;
 case_shell=2.1; // Wall Thickness of case
