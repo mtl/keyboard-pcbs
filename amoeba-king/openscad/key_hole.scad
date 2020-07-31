@@ -119,7 +119,7 @@ module key_hole( grip = true, x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spa
         cube([x*2,y*2,z_spacing_n+z_fixer], true);
         translate([0,0,-component_h/2])
         union() {
-            cube([pcb_x_tab_l,pcb_outer_l+y_spacing,z_spacing_n+z_fixer+component_h], true);
+            cube([pcb_x_tab_l,pcb_outer_l+y_spacing*2,z_spacing_n+z_fixer+component_h], true);
             cube([pcb_outer_l+x_spacing,pcb_y_tab_l,z_spacing_n+z_fixer+component_h], true);
         }
     }
@@ -163,7 +163,7 @@ module key_hole( grip = true, x_spacing = 0, y_spacing = 0, z_spacing = 0, z_spa
     pcb_tab_offset_fillet_y=pcb_y_tab_l/2 + pcb_tab_d;
 
     translate([0,0,pcb_n_comp_h/2 + cherry_board_to_board])
-    // Centor part
+    // Center part
     difference() {
         cube([pcb_outer_l,pcb_outer_l,pcb_n_comp_h],true);
         union() {
@@ -371,7 +371,7 @@ module key_back_support( z_spacing = 0, x_spacing = 0, y_spacing = 0 ) {
     h = pcb_n_comp_h + z_spacing;
     intersection() {
         translate([0,0,h/2])
-        cube([pcb_outer_l, pcb_outer_l, h], true);
+        cube([pcb_outer_l+x_spacing, pcb_outer_l+y_spacing, h], true);
         union () {
             for (i=[-1,1]) {
                 translate([i*pcb_outer_l/2, 0, 0])
