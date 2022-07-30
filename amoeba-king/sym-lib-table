@@ -1,5 +1,6 @@
 (sym_lib_table
-  (lib (name amoeba-royale-rescue)(type Legacy)(uri ${KIPRJMOD}/amoeba-royale-rescue.lib)(options "")(descr "")(disabled))
-  (lib (name amoeba-king-cache)(type Legacy)(uri ${KIPRJMOD}/amoeba-king-cache.lib)(options "")(descr ""))
-  (lib (name amoeba-king-rescue)(type Legacy)(uri ${KIPRJMOD}/amoeba-king-rescue.lib)(options "")(descr ""))
+  (lib (name "amoeba-royale-rescue")(type "Legacy")(uri "${KIPRJMOD}/amoeba-royale-rescue.lib")(options "")(descr "")(disabled))
+  (lib (name "amoeba-king-cache")(type "Legacy")(uri "${KIPRJMOD}/amoeba-king-cache.lib")(options "")(descr ""))
+  (lib (name "amoeba-king-rescue")(type "Legacy")(uri "${KIPRJMOD}/amoeba-king-rescue.lib")(options "")(descr ""))
+  (lib (name "amoeba-king")(type "KiCad")(uri "/Users/climent/Sources/amoeba-king/libraries/amoeba-king.kicad_sym")(options "")(descr ""))
 )
