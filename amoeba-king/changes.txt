@@ -1,0 +1,11 @@
+v2.0: Support Kaihl switch socket and SK6812MINI LED, remove Alps support
+v1.5: Aesthetic improvements
+v1.3: Improvements to trace layout
+v1.2.1:
+	Add 2nd top SC pad
+	Fix disconnected SC pad
+	Square pads for LED matrix
+	Add Deskthority logo
+v1.2.0: Support Alps
+v1.1.0: Support SMD diode and resistor
+v1.0.0: Initial version
